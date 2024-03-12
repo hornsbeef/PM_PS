@@ -17,6 +17,7 @@ public class s01e01 {
 
 
          */
+        /*
         short result = 0;
         for(int runner = Integer.MAX_VALUE; runner > 1; runner -= Short.MAX_VALUE){
             result += Short.MAX_VALUE;
@@ -24,7 +25,7 @@ public class s01e01 {
         }
         result += Integer.MAX_VALUE % Short.MAX_VALUE;
         System.out.println(result);
-
+        */
 
 
 
@@ -32,6 +33,9 @@ public class s01e01 {
         System.out.println("e) (double) (23/11) = " + (double) (23/11));
         System.out.println("f) 42f = " + 42f );
         System.out.println("g) 4e3D = "+ 4e3D);
+        boolean floatEqualToDouble = 0.1f == 0.1;
+        System.out.println("h) 0.1f == 0.1 = " + floatEqualToDouble);
+
 
 
     }
