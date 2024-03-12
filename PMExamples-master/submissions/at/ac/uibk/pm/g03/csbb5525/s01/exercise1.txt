@@ -1,68 +1,103 @@
 a)
 Ausdruck: 5 * 7 / 3
-Wert: 
-Typ: 
-Begründung: 
+Wert: 11
+Typ: Int
+Begründung: calculation: 5*7 = 35; then 35 / 3 = 11;
+            (remainder not existant for int; associativity of [*, /, %] is to the left)
+            System.out.println("a)  5 * 7 / 3 = " + 5 * 7 / 3);
+            a)  5 * 7 / 3 = 11
 
 
 b)
 Ausdruck: 1 << 8 % 3
-Wert: 
-Typ: 
-Begründung: 
+Wert: 4
+Typ: int
+Begründung: precedence: % before <<:
+            -> 1 << 2 => 100 ==> 4
+            System.out.println("b)  1 << 8 % 3 = " + (1 << 8 % 3) );
+            b)  1 << 8 % 3 = 4
 
 
 c)
 Ausdruck: (short) Integer.MAX_VALUE
-Wert: 
-Typ: 
-Begründung: 
+Wert: -1
+Typ: short
+Begründung: overflow; wraps around form Short.MAX_VALUE to Short.MIN_VALUE -> Short.MAX_VALUE
+            in circle
+            System.out.println("c)  (short)Integer.MAX_VALUE = " + (short)(Integer.MAX_VALUE) );
+            c)  (short)Integer.MAX_VALUE = -1
+                /*
+                short result = 0;
+                for(int runner = Integer.MAX_VALUE; runner > 1; runner -= Short.MAX_VALUE){
+                    result += Short.MAX_VALUE;
+                    //System.out.println(result);
+                }
+                result += Integer.MAX_VALUE % Short.MAX_VALUE;
+                System.out.println(result);
+                */
 
 
 d)
 Ausdruck: 23 / (double) 11
-Wert: 
-Typ: 
-Begründung: 
+Wert: 2.090909090909091
+Typ: double
+Begründung: due to cast to double before actual division -> floating point arithmatic
+            System.out.println("d) 23 / (double) 11 = " + 23 / (double) 11);
+            d) 23 / (double) 11 = 2.090909090909091
 
 
 e)
 Ausdruck: (double) (23/11)
-Wert: 
-Typ: 
-Begründung: 
+Wert: 2.0
+Typ: double
+Begründung: cast to double happens after the division
+            System.out.println("e) (double) (23/11) = " + (double) (23/11));
+            e) (double) (23/11) = 2.0
 
 
 f)
 Ausdruck: 42f
-Wert: 
-Typ: 
-Begründung: 
+Wert: 42.0
+Typ: float
+Begründung: due to suffix f -> floating point literal of type float
+            System.out.println("f) 42f = " + 42f );
+            f) 42f = 42.0
 
 
 g)
 Ausdruck: 4e3D
-Wert: 
-Typ: 
-Begründung: 
+Wert: 4000.0
+Typ: double
+Begründung: double fpl due to suffix D and exponent indicator e
+            no hex value because 0x prefix is missing
+            System.out.println("g) 4e3D = "+ 4e3D);
+            g) 4e3D = 4000.0
 
 
 h)
 Ausdruck: 0.1f == 0.1
-Wert: 
-Typ: 
-Begründung: 
+Wert: false
+Typ: boolean
+Begründung: due to 52 bit mantissa field in IEEE754 -> limited precision of float / double
+            -> float 0.1 =/= double 0.1
+            boolean floatEqualToDouble = 0.1f == 0.1;
+            System.out.println("h) 0.1f == 0.1 = " + floatEqualToDouble);
+            h) 0.1f == 0.1 = false
 
 
 i)
 Ausdruck: 1 == 24 % 3 && 4 > 7 || true
-Wert: 
-Typ: 
-Begründung: 
+Wert: true
+Typ: boolean
+Begründung: always true due to || true
+            System.out.println("i) 1 == 24 % 3 && 4 > 7 || true = " + (1 == 24 % 3 && 4 > 7 || true));
+            i) 1 == 24 % 3 && 4 > 7 || true = true
 
 
 j)
 Ausdruck: 1 == 24 % 3  ? 4 : 7
-Wert: 
-Typ: 
-Begründung: 
+Wert: 7
+Typ: int
+Begründung: precedence: % > == > ?:
+            System.out.println("j) 1 == 24 % 3 ? 4 : 7 = " + (1 == 24 % 3 ? 4 : 7));
+            j) 1 == 24 % 3 ? 4 : 7 = 7

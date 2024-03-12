@@ -35,7 +35,8 @@ public class s01e01 {
         System.out.println("g) 4e3D = "+ 4e3D);
         boolean floatEqualToDouble = 0.1f == 0.1;
         System.out.println("h) 0.1f == 0.1 = " + floatEqualToDouble);
-
+        System.out.println("i) 1 == 24 % 3 && 4 > 7 || true = " + (1 == 24 % 3 && 4 > 7 || true));
+        System.out.println("j) 1 == 24 % 3 ? 4 : 7 = " + (1 == 24 % 3 ? 4 : 7));
 
 
     }
