@@ -1,0 +1,68 @@
+a)
+Ausdruck: 5 * 7 / 3
+Wert: 
+Typ: 
+Begründung: 
+
+
+b)
+Ausdruck: 1 << 8 % 3
+Wert: 
+Typ: 
+Begründung: 
+
+
+c)
+Ausdruck: (short) Integer.MAX_VALUE
+Wert: 
+Typ: 
+Begründung: 
+
+
+d)
+Ausdruck: 23 / (double) 11
+Wert: 
+Typ: 
+Begründung: 
+
+
+e)
+Ausdruck: (double) (23/11)
+Wert: 
+Typ: 
+Begründung: 
+
+
+f)
+Ausdruck: 42f
+Wert: 
+Typ: 
+Begründung: 
+
+
+g)
+Ausdruck: 4e3D
+Wert: 
+Typ: 
+Begründung: 
+
+
+h)
+Ausdruck: 0.1f == 0.1
+Wert: 
+Typ: 
+Begründung: 
+
+
+i)
+Ausdruck: 1 == 24 % 3 && 4 > 7 || true
+Wert: 
+Typ: 
+Begründung: 
+
+
+j)
+Ausdruck: 1 == 24 % 3  ? 4 : 7
+Wert: 
+Typ: 
+Begründung: 
