@@ -9,11 +9,14 @@ public class Triangle {
 
 
     public static void main(String[] args) {
-        int n = 5;
-        //int height = 2*n-1;
+        int n = 20;
+        if (n <= 0){
+            System.out.println("please use a reasonable n value...");
+            System.exit(0);
+        }
 
         signEnum mySignEnum = signEnum.MINUS;
-        String sign = "null";
+        String sign;
         int counter = 0;
 
         for(; counter < (n-1); counter++){
@@ -43,8 +46,6 @@ public class Triangle {
                 System.out.print(sign.repeat(runner));
                 System.out.println(" " + (counter + 1) + ">");
         }
-
-
     }
 
     static String printSign(signEnum myPrintSign){
