@@ -1,0 +1,4 @@
+at/ac/uibk/pm/gXX/zidUsername/s01/e01/exercise1.txt
+at/ac/uibk/pm/gXX/zidUsername/s01/e02/Triangle.java
+at/ac/uibk/pm/gXX/zidUsername/s01/e03/Circles.java
+at/ac/uibk/pm/gXX/zidUsername/s01/e04/Months.java
