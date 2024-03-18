@@ -33,6 +33,7 @@ public class Circles {
         }
 
         cd.show();
+        //cd.clear(); for next assignment!
     }
 
 }

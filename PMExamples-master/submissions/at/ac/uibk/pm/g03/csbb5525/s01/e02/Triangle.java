@@ -19,6 +19,12 @@ public class Triangle {
         String sign;
         int counter = 0;
 
+
+        //improvable mit Bedingungsoperator:
+        //so als bsp: System.out.println(numberPrint % 2 == 0 ? " +" : " -");
+
+        //improvable mit StringBuilder()
+
         for(; counter < (n-1); counter++){
             sign = printSign(mySignEnum);
             mySignEnum = changeEnum(mySignEnum);

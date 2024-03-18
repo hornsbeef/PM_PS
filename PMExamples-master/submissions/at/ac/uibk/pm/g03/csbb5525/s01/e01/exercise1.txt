@@ -1,4 +1,4 @@
-a)
+a)  korrekt
 Ausdruck: 5 * 7 / 3
 Wert: 11
 Typ: Int
@@ -8,7 +8,7 @@ Begründung: calculation: 5*7 = 35; then 35 / 3 = 11;
             a)  5 * 7 / 3 = 11
 
 
-b)
+b)  korrekt
 Ausdruck: 1 << 8 % 3
 Wert: 4
 Typ: int
@@ -18,11 +18,15 @@ Begründung: precedence: % before <<:
             b)  1 << 8 % 3 = 4
 
 
-c)
+c)  korrekt -> fragen wegen ablauf
 Ausdruck: (short) Integer.MAX_VALUE
 Wert: -1
 Typ: short
-Begründung: overflow; wraps around form Short.MAX_VALUE to Short.MIN_VALUE -> Short.MAX_VALUE
+Begründung: -> mit Bitmuster! -> wird abgeschnitten und der "untere Teil verwendet."
+             zB int:    0111|1111   -> = Integer.MAX_Value
+                short:  xxxx|1111   -> = -1
+
+overflow; wraps around form Short.MAX_VALUE to Short.MIN_VALUE -> Short.MAX_VALUE
             in circle
             System.out.println("c)  (short)Integer.MAX_VALUE = " + (short)(Integer.MAX_VALUE) );
             c)  (short)Integer.MAX_VALUE = -1
@@ -37,7 +41,7 @@ Begründung: overflow; wraps around form Short.MAX_VALUE to Short.MIN_VALUE -> S
                 */
 
 
-d)
+d)  korrekt
 Ausdruck: 23 / (double) 11
 Wert: 2.090909090909091
 Typ: double
@@ -46,7 +50,7 @@ Begründung: due to cast to double before actual division -> floating point arit
             d) 23 / (double) 11 = 2.090909090909091
 
 
-e)
+e)  korrekt
 Ausdruck: (double) (23/11)
 Wert: 2.0
 Typ: double
@@ -55,7 +59,7 @@ Begründung: cast to double happens after the division
             e) (double) (23/11) = 2.0
 
 
-f)
+f)  korrekt
 Ausdruck: 42f
 Wert: 42.0
 Typ: float
@@ -64,7 +68,7 @@ Begründung: due to suffix f -> floating point literal of type float
             f) 42f = 42.0
 
 
-g)
+g)  korrekt
 Ausdruck: 4e3D
 Wert: 4000.0
 Typ: double
@@ -74,7 +78,7 @@ Begründung: double fpl due to suffix D and exponent indicator e
             g) 4e3D = 4000.0
 
 
-h)
+h) korrekt
 Ausdruck: 0.1f == 0.1
 Wert: false
 Typ: boolean
@@ -85,7 +89,7 @@ Begründung: due to 52 bit mantissa field in IEEE754 -> limited precision of flo
             h) 0.1f == 0.1 = false
 
 
-i)
+i)  korrekt
 Ausdruck: 1 == 24 % 3 && 4 > 7 || true
 Wert: true
 Typ: boolean
@@ -94,7 +98,7 @@ Begründung: always true due to || true
             i) 1 == 24 % 3 && 4 > 7 || true = true
 
 
-j)
+j)  korrekt
 Ausdruck: 1 == 24 % 3  ? 4 : 7
 Wert: 7
 Typ: int
