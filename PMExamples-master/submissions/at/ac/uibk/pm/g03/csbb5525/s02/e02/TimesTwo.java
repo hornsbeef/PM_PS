@@ -1,0 +1,75 @@
+package at.ac.uibk.pm.g03.csbb5525.s02.e02;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
+public class TimesTwo {
+
+    public static void timesTwo(int value){
+        value *= 2;
+        System.out.println(value);
+    }
+
+    public static void timesTwo(int[] value){
+
+        for(int i = 0; i < value.length; i++){
+            value[i] *= 2;
+            //int current = (int) Array.get(value, i);
+            //Array.set(value, i, current * 2);
+        }
+        System.out.println(Arrays.toString(value));
+
+    }
+
+
+
+    public static void main(String[] args){
+
+
+        int singleTest = 1;
+        int[] test = {1,2,3,4};
+        timesTwo(test);
+        timesTwo(singleTest);
+        //System.out.println(Arrays.toString(test));
+
+
+    }
+
+
+}
+
+
+/*
+Erstellen Sie eine Klasse namens TimesTwo und implementieren Sie die in a) und b) geforderten
+Methoden.
+Rufen Sie anschließend beide Methoden in Ihrer main-Methode auf und beantworten
+Sie alle Fragen aus c) in einer Text-Datei.
+
+a) Schreiben Sie eine statische (static) Methode namens timesTwo die einen an die Methode
+übergegebenen int-Wert mit Zwei multipliziert, das Ergebnis wieder im Parameter speichert
+und den berechneten Wert am Ende ausgibt.
+
+
+b) Schreiben Sie eine statische (static) Methode namens timesTwo die jeden int-Wert eines
+an die Methode übergegebenen int-Arrays mit zwei multipliziert, das Ergebnis wieder in der
+entsprechenden Zelle speichert und das gesamte Array am Ende ausgibt.
+
+Hinweis
+Sie können die Methode Arrays.toString() verwenden um das gesamte Array auszu-
+gebn.
+
+
+
+c) Recherchieren und erklären Sie:
+(i) Warum können mehrere Methoden mit demselben Namen definiert werden?
+
+
+(ii) Ist es möglich zwei Methoden mit demselben Namen und denselben Parametern aber
+unterschiedlichen Rückgabewerten zu definieren?
+(iii) Bedenken Sie: Java unterstützt nur Call by Value. Beobachten Sie die Variablen, die je-
+der der beiden timesTwo Methoden übergeben werden jeweils vor und nach dem Aufruf
+der entsprechenden Methode in der main-Methode. Haben Sich die Werte verändert?
+Erklären sie warum!
+
+
+ */
