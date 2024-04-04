@@ -1,12 +1,11 @@
 package at.ac.uibk.pm.g03.csbb5525.s02.e04;
 
-import at.ac.uibk.pm.g03.csbb5525.s02.e01.PrintArray;
 import codedraw.CodeDraw;
 import codedraw.Image;
-import codedraw.Palette;
 
 import java.awt.*;
-import at.ac.uibk.pm.g03.csbb5525.s02.e01.PrintArray.*;
+
+import static java.lang.Math.*;
 
 public class WhereIsWaldo {
 
@@ -30,29 +29,50 @@ public class WhereIsWaldo {
 
     // detect Waldo by template matching
     public static void detectWaldo(CodeDraw myDrawObj, Image image, Image waldo) {
-        // TODO: Implement missing functionality
-
 
         //getting waldoArray specs
         int[][] waldoArray = convertImage2Array(waldo);
-        int waldoHeight = waldoArray.length;    //useless
-        int waldoWidth = waldoArray[0].length;  //useless
-
         //getting imageArray specs
         int[][] imageArray = convertImage2Array(image);
 
-        //todo:calculate (more than) max amount of image comparisons = SAD-Array size
-        //TODO: -> Improve
-        int imagePixels = image.getHeight() * image.getWidth();
-        System.out.println(imagePixels);
 
+
+
+        //calculate (more than) max amount of image comparisons = SAD-Array size
+        //TODO: -> Improve
+        //int imagePixels = image.getHeight() * image.getWidth();
 
         //todo:create object array for SAD_info
-        SAD_Info[] sadInfos;
-        sadInfos = new SAD_Info[imagePixels];
+        SAD_Info[][] sadInfos;
+        sadInfos = new SAD_Info[image.getHeight()][image.getWidth()];
 
 
-        //todo: calculate SAD for one position defined by leftUpperCorner
+
+        int maxRow = (image.getHeight() - waldo.getHeight());
+        int maxCol = image.getWidth() - waldo.getWidth();
+
+        //going through all image Rows so that waldo still fits in (array wise)
+        for(int currentRow = 0; currentRow < maxRow; currentRow++ ){
+            //going through all image Cols so that waldo still fits in (array wise)
+            for(int currentCol = 0; currentCol < maxCol; currentCol++){
+                //calculate SAD for one position defined by leftUpperCorner
+                int sadValue = sadCalculator(image, waldo, currentRow, currentCol,imageArray ,waldoArray );
+                //testing: -> SAD value allways very large!
+                //System.out.println("sad:"+sadValue);
+
+                //todo: CREATE the Sad object for this position!
+                // set the correct sad Object variables!
+                sadInfos[currentRow][currentCol] = new SAD_Info(currentRow, currentCol, sadValue);
+
+                //todo: testing:
+                System.out.println(sadInfos[currentRow][currentCol].getSADvalue());
+
+
+
+            }
+
+        }
+
 
 
 
@@ -77,7 +97,7 @@ public class WhereIsWaldo {
     //                  .mapToInt(Person::getAge)
     //                  .min()
     //                  .getAsInt();
-        https://www.perplexity.ai/search/Java-in-a-ZnGA_HWSTW6SXoVL95kbGg#21
+    //    https://www.perplexity.ai/search/Java-in-a-ZnGA_HWSTW6SXoVL95kbGg#21
 
 
 //Testing
@@ -93,6 +113,36 @@ public class WhereIsWaldo {
 
 
 
+    }
+
+
+
+    private static int sadCalculator(Image image, Image waldo, int rowPos, int colPos, int[][] imageArray, int[][] waldoArray) {
+        int waldoRow = 0;   //for waldo image always start at 0
+        int waldoCol = 0;   //for waldo image always start at 0
+
+        int sadValue = 0;   //starting with sad_value 0 -> changed in the loops
+
+        int maxRow = rowPos + waldo.getHeight();
+        int maxCol = colPos + waldo.getWidth();
+
+
+
+        //going through as many rows as the waldo image has:
+        for (int currentRow = rowPos; currentRow < maxRow ; currentRow++, waldoRow++ ){
+
+            //going through as many cols as the waldo image has:
+            for (int currentCol = colPos; currentCol < maxCol ; currentCol++, waldoCol++){
+
+                //implement the sad calculation:
+                // |Image - waldo| + ... = sadValue
+                int temp = Math.abs(imageArray[currentRow][currentCol] - waldoArray[waldoRow][waldoCol]);
+                sadValue += temp;
+            }
+            waldoCol = 0;   //MUST NOT FORGET!!!
+        }
+        //return the sad_value
+        return sadValue;
     }
 
     public static void main(String[] args) {
@@ -130,10 +180,21 @@ public class WhereIsWaldo {
 
 class SAD_Info{
 
+    public int getSADvalue() {
+        return SADvalue;
+    }
+
     private int SADvalue;
     //positioning information:
-    private int leftUpperCornerHeight;
-    private int leftUpperCornerWidth;
+    private int row;
+    private int col;
+
+
+    public SAD_Info(int currentRow, int currentCol, int SADvalue){
+        this.SADvalue = SADvalue;
+        row = currentRow;
+        col = currentCol;
+    }
 
 
 
