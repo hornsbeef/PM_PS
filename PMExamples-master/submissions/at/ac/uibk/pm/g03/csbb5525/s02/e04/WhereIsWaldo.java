@@ -137,7 +137,7 @@ public class WhereIsWaldo {
     }
 }
 
-//leftover code from idea to traverse whole image before drawing rectangel with saving
+//leftover code from idea to traverse whole image before drawing rectangle with saving
 //the coordinates and the sadValue to a class (as a replacement for C structs)
 //still here for future coding experiment
 //class SadInfo {
