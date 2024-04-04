@@ -2,8 +2,10 @@ package at.ac.uibk.pm.g03.csbb5525.s02.e04;
 
 import codedraw.CodeDraw;
 import codedraw.Image;
+import codedraw.*;
 
 import java.awt.*;
+import java.util.Arrays;
 
 import static java.lang.Math.*;
 
@@ -29,92 +31,72 @@ public class WhereIsWaldo {
 
     // detect Waldo by template matching
     public static void detectWaldo(CodeDraw myDrawObj, Image image, Image waldo) {
+        //codedraw settings:
+        myDrawObj.setColor(Palette.DEEP_PINK);
+        myDrawObj.setLineWidth(6);
 
         //getting waldoArray specs
         int[][] waldoArray = convertImage2Array(waldo);
         //getting imageArray specs
         int[][] imageArray = convertImage2Array(image);
 
-
-
-
         //calculate (more than) max amount of image comparisons = SAD-Array size
-        //TODO: -> Improve
-        //int imagePixels = image.getHeight() * image.getWidth();
+        int imagePixels = image.getHeight() * image.getWidth();
 
-        //todo:create object array for SAD_info
-        SAD_Info[][] sadInfos;
-        sadInfos = new SAD_Info[image.getHeight()][image.getWidth()];
-
-
+        //create object array for SAD_info
+        SAD_Info[] sadInfos;
+        sadInfos = new SAD_Info[imagePixels];
+        int currentSadInfo = 0; //start at 0 -> will be counted up for every comparison.
+        boolean firstTimeFlag = true;
 
         int maxRow = (image.getHeight() - waldo.getHeight());
         int maxCol = image.getWidth() - waldo.getWidth();
 
+
+        traverseImage(myDrawObj, image, waldo, maxRow, maxCol, imageArray, waldoArray, sadInfos, currentSadInfo, firstTimeFlag);
+
+    }
+
+    private static void traverseImage(CodeDraw myDrawObj, Image image, Image waldo, int maxRow, int maxCol, int[][] imageArray, int[][] waldoArray, SAD_Info[] sadInfos, int currentSadInfo, boolean firstTimeFlag) {
         //going through all image Rows so that waldo still fits in (array wise)
         for(int currentRow = 0; currentRow < maxRow; currentRow++ ){
             //going through all image Cols so that waldo still fits in (array wise)
             for(int currentCol = 0; currentCol < maxCol; currentCol++){
                 //calculate SAD for one position defined by leftUpperCorner
-                int sadValue = sadCalculator(image, waldo, currentRow, currentCol,imageArray ,waldoArray );
-                //testing: -> SAD value allways very large!
-                //System.out.println("sad:"+sadValue);
+                int sadValue = sadCalculator(image, waldo, currentRow, currentCol, imageArray, waldoArray);
+                //CREATE the Sad object for this position!
+                sadInfos[currentSadInfo] = new SAD_Info(currentRow, currentCol, sadValue);
+                currentSadInfo++;
 
-                //todo: CREATE the Sad object for this position!
-                // set the correct sad Object variables!
-                sadInfos[currentRow][currentCol] = new SAD_Info(currentRow, currentCol, sadValue);
+                //-> set minimum value of sad
+                if(firstTimeFlag){
+                    SAD_Info.setSadMinRow(currentRow);
+                    SAD_Info.setSadMinCol(currentCol);
+                    SAD_Info.setMinSADvalue(sadValue);
+                    firstTimeFlag = false;
 
-                //todo: testing:
-                System.out.println(sadInfos[currentRow][currentCol].getSADvalue());
+                    drawCurrentRectangle(myDrawObj, image, waldo, currentCol, currentRow);
+                }
+                if(sadValue < SAD_Info.getMinSADvalue()){
+                    SAD_Info.setSadMinRow(currentRow);
+                    SAD_Info.setSadMinCol(currentCol);
+                    SAD_Info.setMinSADvalue(sadValue);
 
-
+                    drawCurrentRectangle(myDrawObj, image, waldo, currentCol, currentRow);
+                }
 
             }
 
         }
-
-
-
-
-
-
-
-
-
-        //todo: idea for getting minimum: SAD array
-    //    public int min(int[] array) {
-    //        int min = array[0];
-    //        for (int i = 1; i < array.length; i++) {
-    //            if (array[i] < min) {
-    //                min = array[i];
-    //            }
-    //        }
-    //        return min;
-    //    }
-    ///////////////////////////////
-
-    //int minAge = Arrays.stream(people)
-    //                  .mapToInt(Person::getAge)
-    //                  .min()
-    //                  .getAsInt();
-    //    https://www.perplexity.ai/search/Java-in-a-ZnGA_HWSTW6SXoVL95kbGg#21
-
-
-//Testing
-//Dirty testing:
-//        System.out.println(waldo.getHeight());
-//        System.out.println(waldoArray.length);
-//        System.out.println("zeile 1: " + waldoArray[0].length);
-//        System.out.println("zeile 1: " + waldoArray[5].length);
-//        System.out.println("zeile 1: " + waldoArray[25].length);
-//        System.out.println("waldo breite " + waldo.getWidth());
-
-
-
-
-
     }
 
+    //
+    private static void drawCurrentRectangle(CodeDraw myDrawObj, Image image, Image waldo, int currentCol, int currentRow) {
+        myDrawObj.drawImage(0, 0, image);
+        myDrawObj.drawRectangle(currentCol, currentRow, waldo.getWidth(), waldo.getHeight() );
+        myDrawObj.show(300);
+        myDrawObj.clear();
+    }
 
 
     private static int sadCalculator(Image image, Image waldo, int rowPos, int colPos, int[][] imageArray, int[][] waldoArray) {
@@ -148,16 +130,16 @@ public class WhereIsWaldo {
     public static void main(String[] args) {
 
         // waldo1
-        String linkImage = "https://fileshare.uibk.ac.at/f/281e89b8ab6941a2a6f8/?dl=1"; // image1.png
-        String linkWaldo = "https://fileshare.uibk.ac.at/f/9c3f1c26dce649929411/?dl=1"; // waldo1.png
+        //String linkImage = "https://fileshare.uibk.ac.at/f/281e89b8ab6941a2a6f8/?dl=1"; // image1.png
+        //String linkWaldo = "https://fileshare.uibk.ac.at/f/9c3f1c26dce649929411/?dl=1"; // waldo1.png
 
         // waldo2
         //String linkImage = "https://fileshare.uibk.ac.at/f/0f9894d1aa834fb581d8/?dl=1"; // image2.png
         //String linkWaldo = "https://fileshare.uibk.ac.at/f/80e1d0e93538489791c3/?dl=1"; // waldo2.png
 
         // waldo3
-        //String linkImage = "https://fileshare.uibk.ac.at/f/778ed5cbf99a4d5ab450/?dl=1"; // image3.png
-        //String linkWaldo = "https://fileshare.uibk.ac.at/f/201a5747f8aa40bb9214/?dl=1"; // waldo3.png
+        String linkImage = "https://fileshare.uibk.ac.at/f/778ed5cbf99a4d5ab450/?dl=1"; // image3.png
+        String linkWaldo = "https://fileshare.uibk.ac.at/f/201a5747f8aa40bb9214/?dl=1"; // waldo3.png
 
         // Load images
         Image image = Image.fromUrl(linkImage);
@@ -175,10 +157,17 @@ public class WhereIsWaldo {
         // detect Waldo and show result
         detectWaldo(cd, image, waldo);
 
+
+
     }
 }
 
 class SAD_Info{
+
+    private static int sadMinRow;
+    private static int sadMinCol;
+    private static int minSADvalue;
+
 
     public int getSADvalue() {
         return SADvalue;
@@ -197,7 +186,28 @@ class SAD_Info{
     }
 
 
+    public static int getSadMinRow() {
+        return sadMinRow;
+    }
 
+    public static void setSadMinRow(int sadMinRow) {
+        SAD_Info.sadMinRow = sadMinRow;
+    }
+
+    public static int getSadMinCol() {
+        return sadMinCol;
+    }
+
+    public static void setSadMinCol(int sadMinCol) {
+        SAD_Info.sadMinCol = sadMinCol;
+    }
+    public static int getMinSADvalue() {
+        return minSADvalue;
+    }
+
+    public static void setMinSADvalue(int minSADvalue) {
+        SAD_Info.minSADvalue = minSADvalue;
+    }
 
 
 }
