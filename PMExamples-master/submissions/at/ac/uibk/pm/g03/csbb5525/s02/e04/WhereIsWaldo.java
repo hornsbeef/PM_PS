@@ -33,11 +33,61 @@ public class WhereIsWaldo {
         // TODO: Implement missing functionality
 
 
-        //Testing
-        int[][] test = convertImage2Array(waldo);
-//        PrintArray.printArray(test, "|");
-        System.out.println(waldo.getHeight());
-        System.out.println(test.length);
+        //getting waldoArray specs
+        int[][] waldoArray = convertImage2Array(waldo);
+        int waldoHeight = waldoArray.length;    //useless
+        int waldoWidth = waldoArray[0].length;  //useless
+
+        //getting imageArray specs
+        int[][] imageArray = convertImage2Array(image);
+
+        //todo:calculate (more than) max amount of image comparisons = SAD-Array size
+        //TODO: -> Improve
+        int imagePixels = image.getHeight() * image.getWidth();
+        System.out.println(imagePixels);
+
+
+        //todo:create object array for SAD_info
+        SAD_Info[] sadInfos;
+        sadInfos = new SAD_Info[imagePixels];
+
+
+        //todo: calculate SAD for one position defined by leftUpperCorner
+
+
+
+
+
+
+
+
+        //todo: idea for getting minimum: SAD array
+    //    public int min(int[] array) {
+    //        int min = array[0];
+    //        for (int i = 1; i < array.length; i++) {
+    //            if (array[i] < min) {
+    //                min = array[i];
+    //            }
+    //        }
+    //        return min;
+    //    }
+    ///////////////////////////////
+
+    //int minAge = Arrays.stream(people)
+    //                  .mapToInt(Person::getAge)
+    //                  .min()
+    //                  .getAsInt();
+        https://www.perplexity.ai/search/Java-in-a-ZnGA_HWSTW6SXoVL95kbGg#21
+
+
+//Testing
+//Dirty testing:
+//        System.out.println(waldo.getHeight());
+//        System.out.println(waldoArray.length);
+//        System.out.println("zeile 1: " + waldoArray[0].length);
+//        System.out.println("zeile 1: " + waldoArray[5].length);
+//        System.out.println("zeile 1: " + waldoArray[25].length);
+//        System.out.println("waldo breite " + waldo.getWidth());
 
 
 
@@ -76,4 +126,17 @@ public class WhereIsWaldo {
         detectWaldo(cd, image, waldo);
 
     }
+}
+
+class SAD_Info{
+
+    private int SADvalue;
+    //positioning information:
+    private int leftUpperCornerHeight;
+    private int leftUpperCornerWidth;
+
+
+
+
+
 }
