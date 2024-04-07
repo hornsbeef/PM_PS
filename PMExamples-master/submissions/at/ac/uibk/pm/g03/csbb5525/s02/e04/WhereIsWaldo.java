@@ -37,8 +37,9 @@ public class WhereIsWaldo {
         //getting imageArray specs
         int[][] imageArray = convertImage2Array(image);
 
-        int maxRow = (image.getHeight() - waldo.getHeight());
-        int maxCol = image.getWidth() - waldo.getWidth();
+        //calculating parameters for loop conditions so that waldo is still in the image
+        int maxRow = (image.getHeight() - waldo.getHeight());    //for "bottom"
+        int maxCol = image.getWidth() - waldo.getWidth();        //for "right" side
 
         //actual finding & drawing:
         traverseImage(myDrawObj, image, waldo, maxRow, maxCol, imageArray, waldoArray);
@@ -46,19 +47,22 @@ public class WhereIsWaldo {
     }
 
     private static void traverseImage(CodeDraw myDrawObj, Image image, Image waldo, int maxRow, int maxCol, int[][] imageArray, int[][] waldoArray) {
+        //looking for the smallest sadValue when comparing waldo to image-parts.
 
-        var minimum =  Integer.MAX_VALUE;
+        var minimum =  Integer.MAX_VALUE;       //start with the largest possible value
 
-        //going through all image Rows so that waldo still fits in (array wise)
+
+        //going through all image Rows (so that waldo still fits in (array wise))
         for(int currentRow = 0; currentRow < maxRow; currentRow++ ){
-            //going through all image Cols so that waldo still fits in (array wise)
+            //going through all image Cols (so that waldo still fits in (array wise))
             for(int currentCol = 0; currentCol < maxCol; currentCol++){
                 //calculate SAD for one position defined by leftUpperCorner
                 int sadValue = sadCalculator(waldo, currentRow, currentCol, imageArray, waldoArray);
 
                 minimum = Math.min(minimum, sadValue);
 
-                if(minimum == sadValue){
+                if(minimum == sadValue){    //this is true when in this iteration of the loop minimum was set to sadValue
+                                            //-> here we want to get the next rectangle drawn.
                     drawCurrentRectangle(myDrawObj, image, waldo, currentCol, currentRow);
                 }
             }

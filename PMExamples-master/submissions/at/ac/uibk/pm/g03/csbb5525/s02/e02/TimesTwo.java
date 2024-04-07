@@ -14,10 +14,8 @@ public class TimesTwo {
 
         for(int i = 0; i < value.length; i++){
             value[i] *= 2;
-            //Why make things simple when you can make them complicated?
-            //int current = (int) Array.get(value, i);
-            //Array.set(value, i, current * 2);
         }
+
         System.out.println(Arrays.toString(value));
 
     }

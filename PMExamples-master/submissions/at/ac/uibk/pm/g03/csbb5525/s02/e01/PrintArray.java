@@ -1,15 +1,12 @@
 package at.ac.uibk.pm.g03.csbb5525.s02.e01;
 
-import java.util.Arrays;
-
 public class PrintArray {
 
-    /* TODO: declare and implement the method printArray! */
-    public static void printArray(int[][] array, String seperator){
+    public static void printArray(int[][] array, String separator){
 
         for(int[] innerArray : array){
             for(int number : innerArray){
-                System.out.print(number + seperator);
+                System.out.print(number + separator);
             }
             System.out.println();
         }

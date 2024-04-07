@@ -1,4 +1,4 @@
-package at.ac.uibk.pm.g03.csbb5525.exerciseTesting;
+package at.ac.uibk.pm.g03.csbb5525.exercisetesting;
 
 public class s01e01 {
     public static void main(String[] args) {

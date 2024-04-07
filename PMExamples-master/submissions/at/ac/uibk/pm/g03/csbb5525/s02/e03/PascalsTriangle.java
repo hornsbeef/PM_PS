@@ -9,26 +9,28 @@ public class PascalsTriangle {
     //int[][] was used to ease printing.
     //could have used long, but even then overflow occurs at some point.
 
+        //checking for user input
         if(lines <= 0){
             System.out.println("only Integers >=1 allowed!");
             int[][] pascalTriangle = {{0}};
             return pascalTriangle;
         }
 
-        int[][] pascalTriangle = new int[lines][];
+        int[][] pascalTriangle = new int[lines][]; //new multi-array with first dimension: rows = lines
 
-        int maxRows = pascalTriangle.length;
+        int maxRows = pascalTriangle.length;    //for readability. is same as lines.
 
-        for(int currentRow = 0; currentRow < maxRows; currentRow++){
+        for(int currentRow = 0; currentRow < maxRows; currentRow++){    //loop going through every row.
 
-            pascalTriangle[currentRow] = new int[currentRow+1];     //CAVE: MUST be currentRow + 1 !!! (count starts @ 0...)
-            int maxCols = pascalTriangle[currentRow].length;
+            pascalTriangle[currentRow] = new int[currentRow+1]; //create new int array with correct length for every row
+                                                                // CAVE: MUST be currentRow + 1 !!! (count starts @ 0...)
+            int maxCols = pascalTriangle[currentRow].length;    //readability: max cols for this row
 
-            for(int currentCol = 0; currentCol < maxCols; currentCol++){
+            for(int currentCol = 0; currentCol < maxCols; currentCol++){    //loop going through all cols in this row
 
-                if(currentCol == 0){
+                if(currentCol == 0){                            //first col
                     pascalTriangle[currentRow][currentCol] = 1;
-                } else if (currentCol == (maxCols - 1)) {
+                } else if (currentCol == (maxCols - 1)) {       //last col
                     pascalTriangle[currentRow][currentCol] = 1;
                 }else{
                     pascalTriangle[currentRow][currentCol] = pascalTriangle[currentRow-1][currentCol-1] + pascalTriangle[currentRow-1][currentCol];
