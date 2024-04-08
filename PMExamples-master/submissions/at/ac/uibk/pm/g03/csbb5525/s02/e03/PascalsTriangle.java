@@ -1,8 +1,7 @@
 package at.ac.uibk.pm.g03.csbb5525.s02.e03;
 
+import static at.ac.uibk.pm.g03.csbb5525.s02.e03.PrintArray.printArray;
 import static java.lang.Integer.parseInt;
-import static at.ac.uibk.pm.g03.csbb5525.s02.e01.PrintArray.printArray;
-
 public class PascalsTriangle {
 
     private static int[][] pascalTriangle(int lines){
