@@ -76,9 +76,6 @@ public class Artemisexperiment3 {
             }
         }
 
-
-
-
         return true;
     }
     public static boolean isValidNumber(int number){
@@ -88,12 +85,5 @@ public class Artemisexperiment3 {
         return false;
 
     }
-
-
-
-
-
-
-
 }
 

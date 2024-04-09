@@ -1,6 +1,5 @@
 package at.ac.uibk.pm.g03.csbb5525.s02.e03;
 
-import static at.ac.uibk.pm.g03.csbb5525.s02.e03.PrintArray.printArray;
 import static java.lang.Integer.parseInt;
 public class PascalsTriangle {
 
@@ -94,7 +93,7 @@ public class PascalsTriangle {
         int input = parseInt(args[0]);
 
         int[][] pascTriangle = pascalTriangle(input);
-        printArray(pascTriangle, " ");
+        PrintArray.printArray(pascTriangle, " ");
         //printPascalTriangel(pascTriangle);
 
 
