@@ -7,9 +7,16 @@ public class PrintArray {
 
     public static void printArray(int[][] array, String separator) {
 
-        Arrays.stream(array)
-              .forEach(innerArray -> Arrays.stream(innerArray).forEach(item -> System.out.print(item + separator)));
+        Arrays.stream(array).forEach( (innerArray) -> {
+            Arrays.stream(innerArray).forEach( item -> System.out.print(item + separator) );
+            System.out.println();
+        });
 
+
+
+        //Arrays.stream(array)
+        //      .forEach(innerArray -> Arrays.stream(innerArray).forEach(item -> System.out.print(item + separator)));
+        //
 
         //for(int[] innerArray : array){
         //    Arrays.stream(innerArray).forEach(item -> System.out.print(item + separator));
