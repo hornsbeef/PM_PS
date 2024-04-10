@@ -17,6 +17,8 @@ public class Day1 {
         the calibration value can be found by combining
         the first digit and the last digit (in that order)
         to form a single two-digit number.
+        Then adding all the numbers from all lines together
+
          */
 
 
@@ -32,21 +34,14 @@ public class Day1 {
         }
 
 
-        List<ArrayList> list = new ArrayList<>();
+        //List<ArrayList> list = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
 
 
         //while(scan.hasNext()){
-            //testing:
-            //System.out.println(scan.nextLine());
-
-
             String temp = scan.nextLine();
 
-
             List<Character> characterList = temp.chars().mapToObj(c-> (char) c).toList();
-
-            //characterList.forEach(System.out::print);
-            //System.out.println();
 
             List<Character> charactersListdigits =
                    characterList.stream()
@@ -78,7 +73,12 @@ public class Day1 {
             int count = charactersListdigits.size();
 
             switch(count) {
-                case 0 -> System.out.println();//continue;
+                case 0 -> System.out.println("need to skip line -> use continue?");//continue;
+                case 1 -> list.addAll(charactersListdigits.stream().map(i->(int)i).toList());
+                default -> {
+                    Integer first = Integer.valueOf(charactersListdigits.get(0));
+                    Integer last = Integer.valueOf(charactersListdigits)
+                }
             }
 
 
