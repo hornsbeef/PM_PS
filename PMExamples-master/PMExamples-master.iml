@@ -5,6 +5,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/submissions" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/submissions/at/ac/uibk/pm/g03/csbb5525/exercisetesting" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -14,5 +15,14 @@
     <orderEntry type="library" name="CodeDraw" level="project" />
     <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="library" name="CodeDraw" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MAVEN_REPOSITORY$/org/jetbrains/annotations/24.0.0/annotations-24.0.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

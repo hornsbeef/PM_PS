@@ -77,7 +77,7 @@ public class Day1 {
                 case 1 -> list.addAll(charactersListdigits.stream().map(i->(int)i).toList());
                 default -> {
                     Integer first = Integer.valueOf(charactersListdigits.get(0));
-                    Integer last = Integer.valueOf(charactersListdigits)
+                    //Integer last = Integer.valueOf(charactersListdigits);
                 }
             }
 
