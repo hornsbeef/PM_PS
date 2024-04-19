@@ -1,4 +1,4 @@
-package at.ac.uibk.pm.g03.csbb5525.exercisetesting.adventofcode.day01;
+package at.ac.uibk.pm.g03.csbb5525.exercisetesting.adventofcode.day01.trying;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -71,13 +71,29 @@ public class Day1 {
             });
 
             int count = charactersListdigits.size();
+            System.out.println(count);
+
+            char[] charArray = new char[count];
+            //charArray = List<Character>.stream(charactersListdigits).map(c -> (char)c).toArray();
+
+        for (int i = 0; i <count; i++) {
+            charArray[i] = charactersListdigits.get(i);
+        }
+        System.out.println(Arrays.toString(charArray));
+
 
             switch(count) {
                 case 0 -> System.out.println("need to skip line -> use continue?");//continue;
-                case 1 -> list.addAll(charactersListdigits.stream().map(i->(int)i).toList());
+                //case 1 -> list.addAll(charactersListdigits.stream().map(i->(int)i).toList());   //whut??
                 default -> {
-                    Integer first = Integer.valueOf(charactersListdigits.get(0));
-                    //Integer last = Integer.valueOf(charactersListdigits);
+                    int first = (int) charArray[0];
+
+
+                    int last = (int) charArray[count-1];
+                    //int first = Integer.valueOf(charactersListdigits.get(0));   //todo: something goes wrong here.
+                    //System.out.println(first);
+                    //Integer last = Integer.valueOf(charactersListdigits.get(charactersListdigits.size() - 1));
+                    System.out.println(first +""+ last);
                 }
             }
 
