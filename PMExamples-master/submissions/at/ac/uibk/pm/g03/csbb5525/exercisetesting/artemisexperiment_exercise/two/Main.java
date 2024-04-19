@@ -26,7 +26,21 @@ public class Main {
             return null;
         }
 
+        //added for better checking!
+        for (int i = 0; i <marsmap.length ; i++) {
+            if (marsmap[i] ==null || marsmap[i].length == 0){
+                return null;
+            }
+        }
+
         int[] roverPosition = searchRover(marsmap);
+        //add checking if rover is even on map
+        if( roverPosition == null ){   //maybe || is better here than &&
+            return null; // map is null or empty -> return null
+        }
+        if(roverPosition[0] == -1 || roverPosition[1] == -1){   //maybe || is better here than &&
+            return marsmap; //rover not on map simply return map.
+        }
 
         int newrow = 0;
         int newcol = 0;
