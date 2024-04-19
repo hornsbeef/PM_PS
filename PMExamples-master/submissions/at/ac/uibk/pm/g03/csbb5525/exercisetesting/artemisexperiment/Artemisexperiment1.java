@@ -1,4 +1,4 @@
-package at.ac.uibk.pm.g03.csbb5525.exercisetesting;
+package at.ac.uibk.pm.g03.csbb5525.exercisetesting.artemisexperiment;
 
 public class Artemisexperiment1 {
     //package artemis;
