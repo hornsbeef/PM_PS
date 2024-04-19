@@ -1,4 +1,4 @@
-package at.ac.uibk.pm.g03.csbb5525.exercisetesting;
+package at.ac.uibk.pm.g03.csbb5525.exercisetesting.crispin;
 
 import codedraw.CodeDraw;
 import codedraw.Palette;

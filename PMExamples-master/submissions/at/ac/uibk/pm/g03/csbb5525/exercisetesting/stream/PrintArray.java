@@ -1,4 +1,4 @@
-package at.ac.uibk.pm.g03.csbb5525.exercisetesting;
+package at.ac.uibk.pm.g03.csbb5525.exercisetesting.stream;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
