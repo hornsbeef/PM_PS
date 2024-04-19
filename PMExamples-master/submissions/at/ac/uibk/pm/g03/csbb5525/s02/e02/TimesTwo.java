@@ -3,6 +3,12 @@ package at.ac.uibk.pm.g03.csbb5525.s02.e02;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
+/*
+improvement comments:
+
+ */
+
+
 public class TimesTwo {
 
     public static void timesTwo(int value){
