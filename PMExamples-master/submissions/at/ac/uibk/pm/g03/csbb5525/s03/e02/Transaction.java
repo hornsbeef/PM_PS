@@ -10,7 +10,7 @@ public class Transaction {
     private Transactionstatus status;
 
     private boolean isDeposit = false;
-    private boolean isWithdrawl = false;
+    private boolean isWithdrawal = false;
 
 
     //todo: create second/third constructor for deposit/withdrawl.
@@ -21,8 +21,8 @@ public class Transaction {
         this.isDeposit = true;
         transactionMethod(source, target, amount);
     }
-    public Transaction(boolean isWithdrawl, Iban source, Iban target, int amount) {
-        this.isWithdrawl = true;
+    public Transaction(boolean isWithdrawal, Iban source, Iban target, int amount) {
+        this.isWithdrawal = true;
         transactionMethod(source, target, amount);
     }
 
@@ -59,9 +59,9 @@ public class Transaction {
                 sourceAccount.setBalance(+amount, this);    //TODO: CHECK IF WORKS
             }
 
-            if(!this.isWithdrawl){
+            if(!this.isWithdrawal){
                 targetAccount.setBalance(+amount, this);    //TODO: CHECK IF WORKS
-            } else if (this.isWithdrawl) {
+            } else if (this.isWithdrawal) {
                 //the Bank's account shows total amount of money that is stored in this Banking system.
                 targetAccount.setBalance(-amount, this);    //TODO: CHECK IF WORKS
             }
@@ -78,9 +78,15 @@ public class Transaction {
 
     @Override
     public String toString(){
-        String transactionProtocol = "Transaction ID: " + this.id +
-                ;
+        String transactionType = isDeposit ? "DEPOSIT" : (isWithdrawal ? "WITHDRAWAL" : "TRANSFER");
 
+        return
+                transactionType
+                +"Transaction ID: " + this.id
+                +"Status: " + this.status
+                +"Source: " + this.source
+                +"Target: " + this.target
+                +"Amount: " + this.amount;
     }
 
 

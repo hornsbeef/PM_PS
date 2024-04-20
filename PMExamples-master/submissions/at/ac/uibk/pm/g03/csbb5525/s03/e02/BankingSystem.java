@@ -23,6 +23,7 @@ public class BankingSystem {
     public void createAccount(Customer customer){
         BankAccount newAccount = new BankAccount(customer, this);
         bankAccountList.add(newAccount);
+        customer.addBankAccounts(newAccount);
     }
 
     public Transactionstatus transfer(Iban source, Iban target, int amount){
