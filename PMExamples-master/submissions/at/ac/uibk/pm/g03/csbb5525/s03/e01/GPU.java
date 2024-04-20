@@ -25,4 +25,7 @@ public class GPU {
         return model.getModel();
     }
 
+    public GPUManufacturer getGPUManufacturer() {
+        return manufacturer;
+    }
 }

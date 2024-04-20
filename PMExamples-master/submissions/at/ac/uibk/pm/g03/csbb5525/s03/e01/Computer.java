@@ -66,6 +66,45 @@ public class Computer {
         );
     }
 
+    void printInfo(Currency currency, boolean printAllInfo){
+        if(!printAllInfo){
+            printInfo(currency);
+            return;
+        }
+        System.out.println("Computer's detail:\n"
+                                   +"Model: " + pcModel.getModel() + "\n"
+                                   +"Manufacturing Year: " + manufacturingYear + "\n"
+                                   +"Computer Price: " + getPCPrice(currency) + " " +currency.name()+ "\n"
+
+
+                                   +"Processor Model: " + processor.getCPUModel() + "\n"
+                                   +"Processor Price: " + currencyFormatter.format(processor.getCPUPrice(currency)) + " " +currency.name()+ "\n"
+                                   +"Processor Manufacturer: " + processor.getCPUManufacturer() + "\n"
+                                   +"Processor Cores: " + processor.getCPUCores() + "\n"
+
+
+                                   +"Hard Disk Model: " + hardDisk.getHDDModel() + "\n"
+                                   +"Hard Disk Price: " + currencyFormatter.format(hardDisk.getHDDPrice(currency)) + " " +currency.name()+ "\n"
+                                   +"Hard Disk Storage Capacity: " + hardDisk.getStorageCapacity() + "\n"
+                                   +"Hard Disk Data Write Rate: " + hardDisk.getDataWriteRate() + "\n"
+
+
+                                   +"Ram Model: " + ramSlots[0].getRAMModel() + "\n"
+                                   +"Ram Price per module: " + currencyFormatter.format(ramSlots[0].getRAMPrice(currency)) + " " +currency.name()+ "\n"
+                                   +"Ram Slots: " + ramSlots.length+ "\n"
+                                   +"Ram Memory per Slot: " + ramSlots[0].getMemory() + "\n"
+                                   +"Ram Clockspeed: " + ramSlots[0].getClockSpeed() + "\n"
+
+                                   +"GPU Model: " + gpu.getGPUModel() + "\n"
+                                   +"GPU Price: " + currencyFormatter.format(gpu.getGPUPrice(currency))+ " " +currency.name()+ "\n"
+                                   +"GPU Manufacturer: " + gpu.getGPUManufacturer() + "\n"
+        );
+
+
+
+
+    }
+
     double dataTransferDuration(double sizeGB){
         return hardDisk.hddDataTransferDuration(sizeGB);
     }

@@ -15,7 +15,11 @@ public class Main {
 
         System.out.println("This Computer costs " + pc1.getPCPrice(currency) + " " +currency.name());
 
-        pc1.printInfo(currency);
+
+        //set to true, if ALL info is required:
+        boolean getAllInfo = true;
+
+        pc1.printInfo(currency, getAllInfo);
 
         double dataToTransferGB = 10.765;
 
@@ -23,6 +27,18 @@ public class Main {
                                    + Double.toString(dataToTransferGB) +" GB of data."
                 );
 
+        System.out.println("\n\n\n");
+
+        Computer pc2 = new Computer(2018, CPUManufacturer.INTEL, 4, "i3-3978",
+                                    2000, 560, "E970", RamSlots.ONE,
+                                    8, 2666,"Generic", GPUManufacturer.NVIDIA,
+                                    "780Ti");
+
+
+        System.out.println("This Computer costs " + pc2.getPCPrice(currency) + " " +currency.name());
+        pc2.printInfo(currency, getAllInfo);
+        System.out.println("It takes " + pc2.dataTransferDuration(dataToTransferGB) + " seconds to transfer "
+                                   + Double.toString(dataToTransferGB) +" GB of data.");
     }
 
 

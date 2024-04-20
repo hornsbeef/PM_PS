@@ -17,6 +17,8 @@ public class Processor {
     String getCPUModel(){
         return model.getModel();
     }
+    String getCPUManufacturer(){return manufacturer.toString(); }
+    int getCPUCores(){return cores;}
 
     float getCPUPrice(Currency currency){
         return price.getAmount(currency);

@@ -27,7 +27,13 @@ public class HDD {
         return price.getAmount(currency);
     }
 
-    //todo: implement method dataTransferDuration(sizeGB)
+    int getStorageCapacity() {
+        return storageCapacity;
+    }
+
+    int getDataWriteRate() {
+        return dataWriteRate;
+    }
 
     double hddDataTransferDuration(double sizeGB){
 

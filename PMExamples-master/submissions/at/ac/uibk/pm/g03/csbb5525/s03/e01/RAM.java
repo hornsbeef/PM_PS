@@ -26,4 +26,11 @@ public class RAM {
         return price.getAmount(currency);
     }
 
+    int getMemory() {
+        return memory;
+    }
+
+    int getClockSpeed() {
+        return clockSpeed;
+    }
 }
