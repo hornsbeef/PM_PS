@@ -9,37 +9,83 @@ public class Transaction {
     private int amount;
     private Transactionstatus status;
 
-    public Transaction(Iban source, Iban target, int amount) {
+    private boolean isDeposit = false;
+    private boolean isWithdrawl = false;
 
+
+    //todo: create second/third constructor for deposit/withdrawl.
+    public Transaction(Iban source, Iban target, int amount) {
+        transactionMethod(source, target, amount);
+    }
+    public Transaction(Iban source, Iban target, int amount, boolean isDeposit) {
+        this.isDeposit = true;
+        transactionMethod(source, target, amount);
+    }
+    public Transaction(boolean isWithdrawl, Iban source, Iban target, int amount) {
+        this.isWithdrawl = true;
+        transactionMethod(source, target, amount);
+    }
+
+
+    private void transactionMethod(Iban source, Iban target, int amount) {
         this.source = source;
         this.target = target;
 
         this.id = this.hashCode();  //again ignoring Hash Collisions
         this.amount = amount;
 
-
         BankAccount sourceAccount = source.getIbanAccount();
         BankAccount targetAccount = target.getIbanAccount();
+        boolean transferSuccessful = false; //must be initialized.
 
-        CreditRating sourceRating = sourceAccount.getCustomer()
-                                                 .getCreditRating();
+        if(!this.isDeposit){
+            CreditRating sourceRating = sourceAccount.getCustomer()
+                                                     .getCreditRating();
 
-        boolean transferSuccessful = (sourceAccount.getBalance() - amount) >= sourceRating.getRatingValue();
+            transferSuccessful = (sourceAccount.getBalance() - amount) >= sourceRating.getRatingValue();
+        } else if (this.isDeposit) {    //todo: check why says is always true???
+            transferSuccessful = true;
+        }
+
 
         if (transferSuccessful) {
             this.status = Transactionstatus.SUCCESS;
-            //todo: transfer -> adjusting balances!
-            sourceAccount.setBalance(-amount, this);    //TODO: CHECK IF WORKS
-            targetAccount.setBalance(+amount, this);    //TODO: CHECK IF WORKS
 
 
-        } else if (!(transferSuccessful)) {
+            if (!this.isDeposit){
+                sourceAccount.setBalance(-amount, this);    //TODO: CHECK IF WORKS
+            } else if (this.isDeposit) {
+                //the Bank's account shows total amount of money that is stored in this Banking system.
+                sourceAccount.setBalance(+amount, this);    //TODO: CHECK IF WORKS
+            }
+
+            if(!this.isWithdrawl){
+                targetAccount.setBalance(+amount, this);    //TODO: CHECK IF WORKS
+            } else if (this.isWithdrawl) {
+                //the Bank's account shows total amount of money that is stored in this Banking system.
+                targetAccount.setBalance(-amount, this);    //TODO: CHECK IF WORKS
+            }
+
+
+        } else if (!transferSuccessful) {   //TODO: check why says always true
             this.status = Transactionstatus.FAILURE;
         }
-
     }
 
     public Transactionstatus getStatus() {
         return status;
     }
+
+    @Override
+    public String toString(){
+        String transactionProtocol = "Transaction ID: " + this.id +
+                ;
+
+    }
+
+
+
+
+
+
 }
