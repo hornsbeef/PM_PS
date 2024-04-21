@@ -15,7 +15,6 @@ public class BankingSystem {
     public BankingSystem(Customer owner) {
         this.owner = owner;
         this.bank = new BankAccount(owner, this);
-        //bankAccountList.add(bank);
 
     }
 
@@ -57,7 +56,7 @@ public class BankingSystem {
 
     public void printTransactions(){
         System.out.println("\nPrinting transactions:\n");
-        transactionList.forEach(transaction -> System.out.println(transaction.toString())); //TODO:Check if works
+        transactionList.forEach(transaction -> System.out.println(transaction.toString()));
     }
 
     public void printBankAccounts(){

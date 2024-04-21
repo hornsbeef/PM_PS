@@ -13,7 +13,7 @@ public class Transaction {
     private boolean isWithdrawal = false;
 
 
-    //todo: create second/third constructor for deposit/withdrawl.
+
     public Transaction(Iban source, Iban target, int amount) {
         transactionMethod(source, target, amount);
     }
@@ -43,7 +43,7 @@ public class Transaction {
                                                      .getCreditRating();
 
             transferSuccessful = (sourceAccount.getBalance() - amount) >= sourceRating.getRatingValue();
-        } else if (this.isDeposit) {    //todo: check why says is always true???
+        } else if (this.isDeposit) {    //this is always true, but sanity check
             transferSuccessful = true;
         }
 
@@ -53,21 +53,21 @@ public class Transaction {
 
 
             if (!this.isDeposit){
-                sourceAccount.setBalance(-amount, this);    //TODO: CHECK IF WORKS
+                sourceAccount.setBalance(-amount, this);
             } else if (this.isDeposit) {
                 //the Bank's account shows total amount of money that is stored in this Banking system.
-                sourceAccount.setBalance(+amount, this);    //TODO: CHECK IF WORKS
+                sourceAccount.setBalance(+amount, this);
             }
 
             if(!this.isWithdrawal){
-                targetAccount.setBalance(+amount, this);    //TODO: CHECK IF WORKS
+                targetAccount.setBalance(+amount, this);
             } else if (this.isWithdrawal) {
                 //the Bank's account shows total amount of money that is stored in this Banking system.
-                targetAccount.setBalance(-amount, this);    //TODO: CHECK IF WORKS
+                targetAccount.setBalance(-amount, this);
             }
 
 
-        } else if (!transferSuccessful) {   //TODO: check why says always true
+        } else if (!transferSuccessful) {   //this is always true, but sanity check
             this.status = Transactionstatus.FAILURE;
         }
     }

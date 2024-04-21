@@ -16,28 +16,12 @@ public class Main {
         ersteBankUndSparbuechse.createAccount(customer2);
 
 
-        //if(customer1.getBankAccount(customer1, ersteBankUndSparbuechse,0).isPresent()){
-        //    BankAccount c1b0 = customer1.getBankAccount(customer1, ersteBankUndSparbuechse,0).get();
-        //    c1b0.deposit(10000);
-        //
-        //    if(customer2.getBankAccount(customer2, ersteBankUndSparbuechse,0).isPresent()){
-        //        BankAccount c2b0 = customer2.getBankAccount(customer2, ersteBankUndSparbuechse,0).get();
-        //        ersteBankUndSparbuechse.transfer(c1b0.getIban(), c2b0.getIban(), 5000);
-        //        c2b0.withdraw(1000);
-        //
-        //    }
-        //
-        //}
 
         BankAccount c1b0 = saveGetBankAccount(customer1, ersteBankUndSparbuechse, 0);
         BankAccount c2b0 = saveGetBankAccount(customer2, ersteBankUndSparbuechse, 0);
         c1b0.deposit(10000);
         ersteBankUndSparbuechse.transfer(c1b0.getIban(), c2b0.getIban(), 5000);
         c2b0.withdraw(1000);
-
-
-
-
 
 
         BankAccount doesNotExist = saveGetBankAccount(customer2, ersteBankUndSparbuechse, 3);
@@ -53,7 +37,7 @@ public class Main {
     }
 
     private static BankAccount saveGetBankAccount(Customer customer1, BankingSystem ersteBankUndSparbuechse, int index) {
-        while(true){
+        while(true){    //sanity
             BankAccount c1b1;
             if(customer1.getBankAccount(customer1, ersteBankUndSparbuechse,index).isPresent()){
                 c1b1 = customer1.getBankAccount(customer1, ersteBankUndSparbuechse,index).get();
