@@ -1,11 +1,10 @@
 package at.ac.uibk.pm.g03.csbb5525.s03.e02;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 public class BankingSystem {
 
-    //Todo: create a BankAccount that belongs to the Bank itself for deposits and withdrawals
-    //for deposit -> adds to total bank balance
-    //for withdrawl -> takes money from Bank balance
 
     private ArrayList<BankAccount> bankAccountList= new ArrayList();
 
@@ -21,9 +20,19 @@ public class BankingSystem {
     }
 
     public void createAccount(Customer customer){
+        BankAccount newAccount = getBankAccount(customer);
+        customer.addBankAccounts(newAccount);
+    }
+
+    public void createAccount(Customer customer, int index){
+        BankAccount newAccount = getBankAccount(customer);
+        customer.addBankAccounts(index, newAccount);
+    }
+
+    private BankAccount getBankAccount(Customer customer) {
         BankAccount newAccount = new BankAccount(customer, this);
         bankAccountList.add(newAccount);
-        customer.addBankAccounts(newAccount);
+        return newAccount;
     }
 
     public Transactionstatus transfer(Iban source, Iban target, int amount){
@@ -47,8 +56,13 @@ public class BankingSystem {
     }
 
     public void printTransactions(){
+        System.out.println("\nPrinting transactions:\n");
         transactionList.forEach(transaction -> System.out.println(transaction.toString())); //TODO:Check if works
     }
 
+    public void printBankAccounts(){
+        System.out.println("\nPrinting bank accounts:\n");
+        bankAccountList.forEach(bankAccount -> System.out.println(bankAccount.toString() + "\n"));
+    }
 
 }

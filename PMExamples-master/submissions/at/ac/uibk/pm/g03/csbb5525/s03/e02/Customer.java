@@ -7,9 +7,9 @@ public class Customer {
     private String firstName;
     private String lastName;
     private CreditRating creditRating = CreditRating.LOW;
-    private ArrayList<BankAccount> bankAccounts = new ArrayList<>();    //TODO: check if Optional is possible
+    private ArrayList<Optional<BankAccount>> bankAccounts = new ArrayList<>();
 
-    //todo: implement list of all accounts the customer has.
+
 
     public Customer(String firstName, String lastName, CreditRating creditRating){
         this.firstName = firstName;
@@ -21,11 +21,35 @@ public class Customer {
         return creditRating;
     }
 
+
     public void addBankAccounts(BankAccount bankAccount) {
-        bankAccounts.add(bankAccount);
+        bankAccounts.add(Optional.ofNullable(bankAccount));
+    }
+    public void addBankAccounts(int index, BankAccount bankAccount) {
+        bankAccounts.ensureCapacity(index+1);
+        //System.out.println("Size of List: "+bankAccounts.size());
+        //System.out.println("Index: "+index);
+        for (int i = bankAccounts.size(); i < index; i++) {
+            bankAccounts.add(Optional.empty());
+        }
+        //System.out.println("Size of List: "+bankAccounts.size());
+        bankAccounts.add(index, Optional.ofNullable(bankAccount));
     }
 
-    public BankAccount getBankAccount(int index) {
-        Optional<BankAccount> returnAccount =  bankAccounts.get(index).
+    public Optional<BankAccount> getBankAccount(Customer customer1, BankingSystem ersteBankUndSparbuechse,int index) {
+
+        if(index >= 0 && index < bankAccounts.size()){
+            Optional<BankAccount> returnAccount = bankAccounts.get(index);
+            return returnAccount;
+        }else{
+            //return Optional.empty();
+            System.out.println("No bank account found\n" +
+                               "Now creating new bank account with balance 0. \n" +
+                               "(at the designated index)\n");
+            ersteBankUndSparbuechse.createAccount(customer1, index);
+            return Optional.empty();
+        }
+
+
     }
 }

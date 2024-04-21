@@ -81,12 +81,12 @@ public class Transaction {
         String transactionType = isDeposit ? "DEPOSIT" : (isWithdrawal ? "WITHDRAWAL" : "TRANSFER");
 
         return
-                transactionType
-                +"Transaction ID: " + this.id
-                +"Status: " + this.status
-                +"Source: " + this.source
-                +"Target: " + this.target
-                +"Amount: " + this.amount;
+                transactionType + "\n"
+                +"Transaction ID: " + this.id + "\n"
+                +"Status: " + this.status + "\n"
+                +"Source-Iban: " + this.source.toString() + "\n"
+                +"Target-Iban: " + this.target.toString() + "\n"
+                +"Amount: " + this.amount + "\n";
     }
 
 

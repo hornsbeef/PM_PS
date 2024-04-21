@@ -14,4 +14,9 @@ public class Iban {
     public BankAccount getIbanAccount() {
         return bankAccount;
     }
+
+    @Override
+    public String toString(){
+        return Integer.toString(iban);
+    }
 }

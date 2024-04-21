@@ -29,18 +29,19 @@ public class BankAccount {
         if(transaction.getStatus() == Transactionstatus.SUCCESS){
             this.balance += amount;
         }else{
-            //do nothing. this should not happen. maybe throw error.
+            //this should not happen. maybe throw error.
+            System.out.println("Transaction failed");
         }
     }
     public void deposit(int amount){        //implemented like this because required.
         Transactionstatus depositSuccess = bankingSystem.transfer(bankingSystem, iban, amount, true);
         //could give customer feedback if the deposit was successful.
-        System.out.println(depositSuccess.name());
+        System.out.println("Deposit status: "+ depositSuccess.name());
     }
 
     public void withdraw(int amount){
         Transactionstatus withdrawalSuccess = bankingSystem.transfer(iban, bankingSystem, amount, true);
-        System.out.println(withdrawalSuccess.name());
+        System.out.println("Withdrawal status: "+ withdrawalSuccess.name());
     }
 
 
