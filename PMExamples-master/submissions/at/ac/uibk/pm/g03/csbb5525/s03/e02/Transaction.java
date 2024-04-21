@@ -7,7 +7,7 @@ public class Transaction {
                                 // NO! use separate BankAccount called Depositer
     private Iban target;
     private int amount;
-    private Transactionstatus status;
+    private TransactionStatus status;
 
     private boolean isDeposit = false;
     private boolean isWithdrawal = false;
@@ -49,7 +49,7 @@ public class Transaction {
 
 
         if (transferSuccessful) {
-            this.status = Transactionstatus.SUCCESS;
+            this.status = TransactionStatus.SUCCESS;
 
 
             if (!this.isDeposit){
@@ -68,11 +68,11 @@ public class Transaction {
 
 
         } else if (!transferSuccessful) {   //this is always true, but sanity check
-            this.status = Transactionstatus.FAILURE;
+            this.status = TransactionStatus.FAILURE;
         }
     }
 
-    public Transactionstatus getStatus() {
+    public TransactionStatus getStatus() {
         return status;
     }
 

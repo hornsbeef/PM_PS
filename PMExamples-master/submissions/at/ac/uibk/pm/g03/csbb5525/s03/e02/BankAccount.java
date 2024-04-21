@@ -26,7 +26,7 @@ public class BankAccount {
     }
 
     public void setBalance(int amount, Transaction transaction) {
-        if(transaction.getStatus() == Transactionstatus.SUCCESS){
+        if(transaction.getStatus() == TransactionStatus.SUCCESS){
             this.balance += amount;
         }else{
             //this should not happen. maybe throw error.
@@ -34,13 +34,13 @@ public class BankAccount {
         }
     }
     public void deposit(int amount){        //implemented like this because required.
-        Transactionstatus depositSuccess = bankingSystem.transfer(bankingSystem, iban, amount, true);
+        TransactionStatus depositSuccess = bankingSystem.transfer(bankingSystem, iban, amount, true);
         //could give customer feedback if the deposit was successful.
         System.out.println("Deposit status: "+ depositSuccess.name());
     }
 
     public void withdraw(int amount){
-        Transactionstatus withdrawalSuccess = bankingSystem.transfer(iban, bankingSystem, amount, true);
+        TransactionStatus withdrawalSuccess = bankingSystem.transfer(iban, bankingSystem, amount, true);
         System.out.println("Withdrawal status: "+ withdrawalSuccess.name());
     }
 

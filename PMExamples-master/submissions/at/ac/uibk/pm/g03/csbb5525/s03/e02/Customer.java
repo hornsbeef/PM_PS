@@ -36,7 +36,7 @@ public class Customer {
         bankAccounts.add(index, Optional.ofNullable(bankAccount));
     }
 
-    public Optional<BankAccount> getBankAccount(Customer customer1, BankingSystem ersteBankUndSparbuechse,int index) {
+    public Optional<BankAccount> getBankAccount(Customer customer, BankingSystem bankingSystem,int index) {
 
         if(index >= 0 && index < bankAccounts.size()){
             Optional<BankAccount> returnAccount = bankAccounts.get(index);
@@ -46,7 +46,7 @@ public class Customer {
             System.out.println("No bank account found\n" +
                                "Now creating new bank account with balance 0. \n" +
                                "(at the designated index)\n");
-            ersteBankUndSparbuechse.createAccount(customer1, index);
+            bankingSystem.createAccount(customer, index);
             return Optional.empty();
         }
 

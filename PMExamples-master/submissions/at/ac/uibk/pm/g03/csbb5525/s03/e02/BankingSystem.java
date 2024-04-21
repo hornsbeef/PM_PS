@@ -1,7 +1,5 @@
 package at.ac.uibk.pm.g03.csbb5525.s03.e02;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 public class BankingSystem {
 
@@ -34,20 +32,20 @@ public class BankingSystem {
         return newAccount;
     }
 
-    public Transactionstatus transfer(Iban source, Iban target, int amount){
+    public TransactionStatus transfer(Iban source, Iban target, int amount){
 
         Transaction transaction = new Transaction( source, target, amount);
         transactionList.add(transaction);
 
         return transaction.getStatus();
     }
-    public Transactionstatus transfer(BankingSystem bank, Iban target, int amount, boolean isDeposit){
+    public TransactionStatus transfer(BankingSystem bank, Iban target, int amount, boolean isDeposit){
         //this is for depositing.
         Transaction deposit = new Transaction(this.bank.getIban(), target, amount, isDeposit);
         transactionList.add(deposit);
         return deposit.getStatus();
     }
-    public Transactionstatus transfer(Iban source, BankingSystem bank,  int amount, boolean isWithdrawal){
+    public TransactionStatus transfer(Iban source, BankingSystem bank, int amount, boolean isWithdrawal){
         //this is for withdrawals.
         Transaction withdrawal = new Transaction(isWithdrawal, source, this.bank.getIban(), amount);
         transactionList.add(withdrawal);
