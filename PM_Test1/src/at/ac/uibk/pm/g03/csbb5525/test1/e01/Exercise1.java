@@ -1,5 +1,7 @@
 package at.ac.uibk.pm.g03.csbb5525.test1.e01;
 
+//siehe Foto
+
 public class Exercise1 {
 
     public static void main(String[] args) {

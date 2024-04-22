@@ -2,6 +2,9 @@ package at.ac.uibk.pm.g03.csbb5525.test1.e02;
 
 import java.util.Arrays;
 
+
+//forgot the other variants?? String String  and char[] char[] ...
+
 public class Exercise2 {
 
     public static void main(String[] args) {
