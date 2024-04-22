@@ -1,5 +1,14 @@
 package at.ac.uibk.pm.g03.csbb5525.s03.e02;
 
+/*
+beim deposit sollte noch gecheckt werden, dass man keine negativen werte angeben kann!!
+
+
+
+ */
+
+
+
 public class Main {
 
     public static void main(String[] args) {

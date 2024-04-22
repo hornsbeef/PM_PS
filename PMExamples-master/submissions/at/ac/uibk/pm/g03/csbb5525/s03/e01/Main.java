@@ -1,6 +1,24 @@
 package at.ac.uibk.pm.g03.csbb5525.s03.e01;
 
 
+/*
+ab jetzt Fehler gerne auch mit throw new .... anzeigen anstatt von souts !
+
+Aufpassen mit Listen (evtl bei allen Referenzen etwas aufpassen)-> defensive Kopie erstellen! sonst könne man von ausserhalb(der, der die Referenz übergeben hat)
+einfach die Liste verändern.
+-> sowohl bei getter und bei setter!!!
+hilfreich : Collections.unmodifiableList() etc.
+
+
+getter und setter sehr spezifisch wählen, ob wir sie überhaupt brauchen!
+
+how to use super() ???
+
+Präzise dividieren usw -> besser BigDecimal,
+preis wäre besser gewesen in cent zu implementieren. -> weil sich Fehler sonst schnell übertragen!!
+
+ */
+
 public class Main {
 
     public static void main(String[] args){
