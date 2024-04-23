@@ -1,0 +1,21 @@
+Beschreiben Sie die Begriffe Sichtbarkeit und Zugriffsschutz in ihren eigenen Worten. Welche Mög-
+lichkeiten bietet Java dazu und was sind die Unterschiede zwischen den einzelnen Möglichkeiten?
+
+Die Begriffe Sichtbarkeit und Zugriffsschutz in Java beziehen sich auf die Kontrolle darüber,
+wie Klassen, Methoden und Variablen in Java-Programmen von anderen Teilen des Codes gesehen und darauf zugegriffen werden können.
+
+    Sichtbarkeit definiert, welche Teile des Codes von anderen Teilen des Programms gesehen werden können.
+    In Java gibt es:
+        public: Die Elemente sind für alle Klassen sichtbar.
+        private: Die Elemente sind nur innerhalb derselben Klasse sichtbar.
+        protected: Die Elemente sind für Unterklassen und Klassen im selben Paket sichtbar.
+        Paketsichtbarkeit: Die Elemente sind nur für Klassen im selben Paket sichtbar.
+
+    Zugriffsschutz bezieht sich darauf, wie auf die sichtbaren Elemente zugegriffen werden kann.
+    In Java wird der Zugriff durch Methoden wie Getter und Setter kontrolliert, die den Lese- und Schreibzugriff auf Variablen ermöglichen, ohne direkten Zugriff auf die Variablen selbst zu gewähren.
+        Getter: Ermöglicht den Lesezugriff auf eine Variable.
+        Setter: Ermöglicht den Schreibzugriff auf eine Variable.
+
+    Ein wichtiger Aspekt ist auch das Konzept der "defensive copy":
+        Beim Herausgeben / Speichern von daten wird eine separate Kopie einer (zB) Liste angelegt, und diese dann zurückgegeben / gespeichert.
+            Dadurch hat keine aussenstehende Partei eine Referenz auf die eigentlichen Daten. Somit ist keine ungewollte Veränderung der Daten möglich.
