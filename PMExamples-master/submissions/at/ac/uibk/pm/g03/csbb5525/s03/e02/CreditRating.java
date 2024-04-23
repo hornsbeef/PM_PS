@@ -4,7 +4,8 @@ public enum CreditRating {
     LOW(-10000), MEDIUM(-50000), HIGH(-100000);
 
 
-    private int ratingValue;
+    private final int ratingValue;
+
     CreditRating(int ratingValue) {
         this.ratingValue = ratingValue;
     }

@@ -1,48 +1,68 @@
 package at.ac.uibk.pm.g03.csbb5525.s03.e02;
 
-public class BankAccount {
-    private Customer customer;
-    private Iban iban;
-    private int balance;
-    private BankingSystem bankingSystem;
+import java.util.Objects;
+import java.util.UUID;
 
-    public BankAccount(Customer customer, BankingSystem bankingSystem) {
+public class BankAccount {
+
+    private final Customer customer;
+    private final String iban;
+    private final String bic;
+
+    private int balance = 0;
+
+    public BankAccount(Customer customer, String iban, String bic) {
         this.customer = customer;
-        this.bankingSystem = bankingSystem;
-        this.iban = new Iban(this);
-        this.balance = 0;
+        this.iban = iban;
+        this.bic = bic;
+    }
+
+    public BankAccount(BankAccount account){
+        this.customer = account.getCustomer();
+        this.iban = account.getIban();
+        this.bic = account.bic();
+        this.balance = account.getBalance();
     }
 
     public int getBalance() {
         return balance;
     }
 
-    public Iban getIban() {
+    public String getIban() {
         return iban;
     }
+
+    public String bic() { return bic; }
 
     public Customer getCustomer() {
         return customer;
     }
 
-    public void setBalance(int amount, Transaction transaction) {
-        if(transaction.getStatus() == TransactionStatus.SUCCESS){
-            this.balance += amount;
-        }else{
-            //this should not happen. maybe throw error.
-            System.out.println("Transaction failed");
-        }
-    }
     public void deposit(int amount){        //implemented like this because required.
-        TransactionStatus depositSuccess = bankingSystem.transfer(bankingSystem, iban, amount, true);
-        //could give customer feedback if the deposit was successful.
-        System.out.println("Deposit status: "+ depositSuccess.name());
+        balance += amount;
+        System.out.println("deposited " + amount + " to " + iban + ". new balance is " + balance);
     }
 
-    public void withdraw(int amount){
-        TransactionStatus withdrawalSuccess = bankingSystem.transfer(iban, bankingSystem, amount, true);
-        System.out.println("Withdrawal status: "+ withdrawalSuccess.name());
+    public boolean withdraw(int amount){
+        int potentialBalance = balance - amount;
+        if(potentialBalance < customer.getCreditRating().getRatingValue()){
+            System.out.println("credit rating is too low");
+            return false;
+        }
+        balance -= amount;
+        System.out.println("withdrew " + amount + " from " + iban + ". new balance is " + balance);
+        return true;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof BankAccount that)) return false;
+        return Objects.equals(iban, that.iban) && Objects.equals(bic, that.bic);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(iban, bic);
+    }
 }
