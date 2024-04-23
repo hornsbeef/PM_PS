@@ -19,6 +19,8 @@ preis wäre besser gewesen in cent zu implementieren. -> weil sich Fehler sonst 
 
  */
 
+import java.util.function.Consumer;
+
 public class Main {
 
     public static void main(String[] args){

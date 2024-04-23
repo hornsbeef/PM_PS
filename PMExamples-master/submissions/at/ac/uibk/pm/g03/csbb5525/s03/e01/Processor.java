@@ -1,29 +1,27 @@
 package at.ac.uibk.pm.g03.csbb5525.s03.e01;
 
-public class Processor {
-    private Model model;
-    private CPUManufacturer manufacturer;
-    private int cores;
-    private Price price;
+public class Processor implements HardwareComponent {
+    private final Model model;
+    private final CPUManufacturer manufacturer;
+    private final int cores;
 
     public Processor(CPUManufacturer manufacturer, int cores, String model){
         this.model = new Model(manufacturer, cores, model);
         this.manufacturer = manufacturer;
         this.cores = cores;
-        this.price = new Price(manufacturer, cores, model);
+
 
     }
 
-    String getCPUModel(){
+    public String getCPUModel(){
         return model.getModel();
     }
-    String getCPUManufacturer(){return manufacturer.toString(); }
-    int getCPUCores(){return cores;}
+    public CPUManufacturer getCPUManufacturer(){return manufacturer; }
+    public int getCPUCores(){return cores;}
 
-    float getCPUPrice(Currency currency){
-        return price.getAmount(currency);
+
+    @Override
+    public float getPrice(Currency currency) {
+        return PriceCalculator.getAmount(this);
     }
-
-
-
 }
