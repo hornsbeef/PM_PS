@@ -1,55 +1,37 @@
 package at.ac.uibk.pm.g03.csbb5525.s03.e02;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
 public class BankingSystem {
 
 
-    private ArrayList<BankAccount> bankAccountList= new ArrayList();
+    private final List<BankAccount> bankAccountList = new ArrayList<>();
 
-    private ArrayList<Transaction> transactionList = new ArrayList<>();
+    private final List<Transaction> transactionList = new ArrayList<>();
 
     private Customer owner;
     private BankAccount bank;
-    public BankingSystem(Customer owner) {
+    private final String bic;
+    public BankingSystem(Customer owner, String bic) {
         this.owner = owner;
-        this.bank = new BankAccount(owner, this);
+        this.bank = new BankAccount(owner, UUID.randomUUID().toString() ,bic);
+        this.bic = bic;
 
     }
 
-    public void createAccount(Customer customer){
-        BankAccount newAccount = getBankAccount(customer);
+    public BankAccount createAccount(Customer customer){
+        BankAccount newAccount = new BankAccount(customer,UUID.randomUUID().toString(), bic);
         customer.addBankAccounts(newAccount);
-    }
-
-    public void createAccount(Customer customer, int index){
-        BankAccount newAccount = getBankAccount(customer);
-        customer.addBankAccounts(index, newAccount);
-    }
-
-    private BankAccount getBankAccount(Customer customer) {
-        BankAccount newAccount = new BankAccount(customer, this);
-        bankAccountList.add(newAccount);
         return newAccount;
     }
 
-    public TransactionStatus transfer(Iban source, Iban target, int amount){
 
+    public TransactionStatus transfer(BankAccount source, BankAccount target, int amount){
         Transaction transaction = new Transaction( source, target, amount);
         transactionList.add(transaction);
-
         return transaction.getStatus();
-    }
-    public TransactionStatus transfer(BankingSystem bank, Iban target, int amount, boolean isDeposit){
-        //this is for depositing.
-        Transaction deposit = new Transaction(this.bank.getIban(), target, amount, isDeposit);
-        transactionList.add(deposit);
-        return deposit.getStatus();
-    }
-    public TransactionStatus transfer(Iban source, BankingSystem bank, int amount, boolean isWithdrawal){
-        //this is for withdrawals.
-        Transaction withdrawal = new Transaction(isWithdrawal, source, this.bank.getIban(), amount);
-        transactionList.add(withdrawal);
-        return withdrawal.getStatus();
     }
 
     public void printTransactions(){
