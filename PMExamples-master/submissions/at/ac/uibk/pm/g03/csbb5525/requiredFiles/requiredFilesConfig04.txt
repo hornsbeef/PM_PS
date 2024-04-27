@@ -1,0 +1,14 @@
+at/ac/uibk/pm/gXX/zidUsername/s04/e01/exercise1.txt
+at/ac/uibk/pm/gXX/zidUsername/s04/e02/User.java
+at/ac/uibk/pm/gXX/zidUsername/s04/e02/UsernameValidator.java
+at/ac/uibk/pm/gXX/zidUsername/s04/e02/PasswordValidator.java
+at/ac/uibk/pm/gXX/zidUsername/s04/e02/PhoneNumberValidator.java
+at/ac/uibk/pm/gXX/zidUsername/s04/e02/MailAddressValidator.java
+at/ac/uibk/pm/gXX/zidUsername/s04/e02/Validator.java
+at/ac/uibk/pm/gXX/zidUsername/s04/e02/exercise2.txt
+at/ac/uibk/pm/gXX/zidUsername/s04/e02/exercise2.pdf
+at/ac/uibk/pm/gXX/zidUsername/s04/e02/BinaryValidator.java
+at/ac/uibk/pm/gXX/zidUsername/s04/e02/AndValidator.java
+at/ac/uibk/pm/gXX/zidUsername/s04/e02/OrValidator.java
+at/ac/uibk/pm/gXX/zidUsername/s04/e02/Exercise2Application.java
+at/ac/uibk/pm/gXX/zidUsername/s04/e03/exercise3.txt
