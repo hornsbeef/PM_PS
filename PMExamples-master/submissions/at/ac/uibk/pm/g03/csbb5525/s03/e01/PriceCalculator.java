@@ -27,8 +27,8 @@ public class PriceCalculator {
         float price = pricePerCore * cpu.getCPUCores() + priceFluctuations;
 
         return switch (cpu.getCPUManufacturer()){
-            case CPUManufacturer.INTEL ->  price * 1.2f;
-            case CPUManufacturer.AMD -> price;
+            case INTEL ->  price * 1.2f;
+            case AMD -> price;
         };
     }
 
