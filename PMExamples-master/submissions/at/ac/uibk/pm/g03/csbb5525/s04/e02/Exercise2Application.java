@@ -15,10 +15,27 @@ public class Exercise2Application {
                 new User("user5", "password", "", null)
         ));
 
+        System.out.println("Using wonky class UserValidator: ");
         users.forEach( user -> {
             System.out.println("User " + user.getUsername() +  " Validation Status: " + UserValidator.userValid(user) ) ;
         });
+
+        System.out.println("-".repeat(50));
+        System.out.println("Using userValidatorMethod: ");
+        users.forEach( user -> {
+            System.out.println("User " + user.getUsername() +  " Validation Status: " + userValidatorMethod(user) ) ;
+        });
+
+
     }
+
+    private static boolean userValidatorMethod(User user) {
+        Validator usernameAndPassword = new AndValidator(new UsernameValidator(), new PasswordValidator());
+        Validator phoneOrMail = new OrValidator(new PhoneNumberValidator(), new MailAddressValidator());
+        return usernameAndPassword.isValid(user) && phoneOrMail.isValid(user);
+    }
+
+
 }
 
 //due to exercise restrictions this implementation is not in its separate class and java-file.:
@@ -42,3 +59,4 @@ class UserValidator implements Validator {
 
     }
 }
+
