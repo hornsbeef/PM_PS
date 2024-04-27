@@ -1,3 +1,4 @@
+For exercise2-a:
 I have decided to use the Interface - approach.
 
 Reasons:
@@ -6,3 +7,11 @@ Reasons:
     - If any of those validator-classes needed to inherit from a certain class, interface will not interfere with that.
         (had i chosen a concrete or abstract class, this was not possible. )
     - as the implementation of the 4 methods share no code, inheritance did not seem logical to me.
+
+For exercise2-b:
+I have decided to use the abstract class - approach.
+
+Reasons:
+    - as the 2 inheriting classes need the same fields and constructor, the abstract class
+        seemed more logical than the interface.
+    - I did not want to use the concrete class, as I do not want BinaryValidator - Objects.
