@@ -12,7 +12,7 @@ public class Test {
 
 		A object2 = new B();
 		((B) object2).print(new A());
-		object2.print(new C());
+		object2.print(new C());	//todo
 
 		separateOutput(3);
 
