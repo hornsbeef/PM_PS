@@ -22,6 +22,7 @@ public class Exercise2Application {
 }
 
 //due to exercise restrictions this implementation is not in its separate class and java-file.:
+//otherwise would have put it in file UserValidator.java
 //-> would it be better to pack this into a method?
 class UserValidator implements Validator {
 
