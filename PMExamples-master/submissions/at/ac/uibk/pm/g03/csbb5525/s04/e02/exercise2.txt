@@ -3,7 +3,7 @@ I have decided to use the Interface - approach.
 
 Reasons:
     - Interfaces promote loose coupling -> which is good for code maintainability.
-    - gives me the option to treate all 4 classes as a 'Validator'-Object -> for Polymorphism
+    - gives me the option to treat all 4 classes as a 'Validator'-Object -> for Polymorphism
     - If any of those validator-classes needed to inherit from a certain class, interface will not interfere with that.
         (had i chosen a concrete or abstract class, this was not possible. )
     - as the implementation of the 4 methods share no code, inheritance did not seem logical to me.

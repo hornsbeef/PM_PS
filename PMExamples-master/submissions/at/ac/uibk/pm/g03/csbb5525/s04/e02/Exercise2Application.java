@@ -14,7 +14,7 @@ public class Exercise2Application {
                 new User("user2", "user2", "mail@ma.il", "0123456789"),
                 new User("us", "password", "mail@ma.il", "0123456789"),
                 new User("user4", "password", "mail@ma.il", null),
-                new User("user5", "password", "", null)
+                new User("user5", "password", "mail@m@.il", null)   //mail here also false
         ));
 
         System.out.println("Using wonky class UserValidator: ");
@@ -29,13 +29,13 @@ public class Exercise2Application {
 
 
 
-    //due to exercise restrictions this implementation is not in its separate class and java-file.:
+//due to exercise restrictions this implementation is not in its separate class and java-file.:
 //otherwise would have put it in file UserValidator.java
 //-> would it be better to pack this into a method?
     static class UserValidator implements Validator {
 
         private UserValidator() {
-        }//so no UserValidator - Object can be created outside of Exercise2Application
+        }//so no UserValidator - Object can be created outside Exercise2Application
 
         @Override
         public boolean isValid(User user) {
