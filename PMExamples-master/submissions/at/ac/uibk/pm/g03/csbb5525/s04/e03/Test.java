@@ -37,6 +37,7 @@ public class Test {
 		object5.print(new B());
 		object5.print(new A());
 
+
 		separateOutput(6);
 
 		Object object6 = new C();
