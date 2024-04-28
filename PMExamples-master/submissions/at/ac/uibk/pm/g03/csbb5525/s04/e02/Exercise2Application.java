@@ -30,6 +30,7 @@ public class Exercise2Application {
 
 
 //due to exercise restrictions this implementation is not in its separate class and java-file.:
+    //there is no at/ac/uibk/pm/gXX/zidUsername/s04/eo3/...
 //otherwise would have put it in file UserValidator.java
 //-> would it be better to pack this into a method?
     static class UserValidator implements Validator {
