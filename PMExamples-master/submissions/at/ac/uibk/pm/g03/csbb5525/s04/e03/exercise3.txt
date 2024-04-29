@@ -58,6 +58,8 @@ Static binding occurs at compile-time and is used for:
     Static methods
         (Methods that are marked as final, static, or private cannot be overridden and are therefore use static binding, where the method to call is determined at compile-time.)
     Method overloading
+    Object variables!!
+
 In static binding, the method to be called is determined by the type of the reference variable,
 not the actual object it refers to. This allows the compiler to optimize the method call during compilation.
 In this exercise, no methods that are private | final | static were called.

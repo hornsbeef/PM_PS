@@ -19,3 +19,5 @@ wie Klassen, Methoden und Variablen in Java-Programmen von anderen Teilen des Co
     Ein wichtiger Aspekt ist auch das Konzept der "defensive copy":
         Beim Herausgeben / Speichern von daten wird eine separate Kopie einer (zB) Liste angelegt, und diese dann zurückgegeben / gespeichert.
             Dadurch hat keine aussenstehende Partei eine Referenz auf die eigentlichen Daten. Somit ist keine ungewollte Veränderung der Daten möglich.
+
+    Anderes interessantes Konzept/Keyword: final
