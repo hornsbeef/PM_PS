@@ -1,0 +1,16 @@
+(i) Warum werden die Quader falsch bzw. nicht gezeichnet?
+
+Der Fehler scheint in der equals()-Methode in der class Vector2 zu liegen:
+dort war der Wertevergleich nicht dem Vertrag entsprechend (Refelxivität, Symmetrei, Transitivität, Konsistenz, null==false)
+ausgeführt.
+Diese equals() wird allerdings in der class Line und class Rectangel verwendet, in deren jeweiligen equals().
+diese equals() werden dann wiederum in der main() mittels ShapeMemory drawnShapes.contains() aufgerufen
+-> und nur mit korrekter Implementierung wird die jeweilige Shape gezeichnet.
+
+
+(ii) Was wird in der Konsole ausgegeben und wie könnte man dafür sorgen, dass aussage-
+kräftigere Informationen ausgegeben werden?
+Ohne Überarbeitung wird die von Object implementierte Standardvariante der Methode toString() ausgeführt
+-> gibt: "<Klassennamen>@<hex-HashCode>" aus.
+
+kann durch überschreiben der toString() in den Klassen Line, Rectange und Vector2 mehr Informaiton bieten.
