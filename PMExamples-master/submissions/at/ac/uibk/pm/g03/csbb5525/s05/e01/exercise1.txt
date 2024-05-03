@@ -1,0 +1,55 @@
+Setzen Sie sich mit dem Thema Wrapper Klassen auseinander und beantworten Sie folgende
+Fragen zu diesem Thema. Schreiben Sie Ihre Antworten in eine Datei namens exercise1.txt.
+
+(i) Worin unterscheiden sich primitive Datentypen und Wrapper Klassen?
+
+primitive Datentypen sind elementare Datentypen, die eine feste Größe und einen definierten Wertebereich haben und dazu dienen,
+    einzelne Zahlen, Zeichen oder logische Werte zu speichern.
+    -> sie können keine Methoden bieten (weil es ja keine Klassen/objekte sind).
+
+Wrapper-Klassen sind spezielle Klassen, die primitive Datentypen in Objekte umwandeln ("wrappen")
+    -> bieten Zugriff auf die primitiven Datentypen und können Funktionen und Methoden bereitstellen, die den primitiven Datentypen fehlen.
+        Wrapper-Klassen können beispielsweise Methoden wie toString() bereitstellen, die direkte Umformung von Strings erlauben.
+
+
+(ii) Erklären Sie anhand eines Beispiels Boxing und Unboxing. Beschreiben Sie das Beispiel ausführlich.
+Umwandlung: primitiv <-> Wrapper
+
+Boxing: primitiver Typ --> Wrapper-Objekt der entsprechenden Wrapper-Klasse:
+int primitiveInt = 10; // Primitive Datentyp
+Integer boxedInt = Integer.valueOf(primitiveInt); // Boxing: Umwandlung des primitiven Datentyps in ein Integer-Objekt
+//In diesem Beispiel wird die int-Variable primitiveInt in ein Integer-Objekt boxedInt umgewandelt.
+//Durch die Verwendung der valueOf()-Methode der Wrapper-Klasse Integer
+//wird der primitive Wert in ein Objekt verpackt.
+
+Unboxing: Wrapper-Objekt --> primitiver Typ
+Integer boxedInt = 20;  //Integer-Objekt (=Wrapper-Objekt)
+int unboxedInt = boxedInt.intValue(); // Unboxing: Umwandlung des Integer-Objekts in einen primitiven int-Wert
+//In diesem Beispiel wird das Integer-Objekt boxedInt in einen primitiven int-Wert unboxedInt umgewandelt.
+//Durch die Verwendung der intValue()-Methode des Integer-Objekts
+//wird der Wert aus dem Objekt extrahiert und in einen primitiven Datentyp umgewandelt.
+
+
+(iii) Was versteht man unter Autoboxing bzw. Autounboxing?
+
+Unter Autoboxing versteht man in Java den automatischen Prozess, bei dem primitive Datentypen implizit
+ in Objekte ihrer entsprechenden Wrapper-Klassen umgewandelt werden.
+ Dies bedeutet, dass beispielsweise ein int automatisch in ein Integer-Objekt konvertiert wird,
+ ohne dass explizite Casts oder andere Hinweise darauf im Code vorhanden sind.
+ Trotzdem wird ein "Objekt generiert" -> bei einem vergleich handelt es sich um einen Referenzvergleich!! KEIN AUTOUNBOXING!
+ Wichtig: ein primitiver Datentyp kann NUR GENAU in die entsprechende Wrapper-Klasse umgewandelt werden!
+ -> Float fObj = 123; wird NICHT funktionieren!
+ -> Float fObj = 123f; wird FUNKTIONIEREN!
+
+Autounboxing hingegen bezieht sich auf den umgekehrten Prozess, bei dem Objekte der Wrapper-Klassen
+ automatisch in ihre entsprechenden primitiven Datentypen umgewandelt werden.
+ Zum Beispiel wird ein Integer-Objekt automatisch in einen int-Wert umgewandelt.
+ Auch hier geschieht dies implizit, ohne dass der Entwickler explizite Umwandlungen im Code vornehmen muss.
+
+Wichtig ist auch noch das Konzept von Ganzzahl-Caching:
+wird angewendet, bei Verwendung von:
+    -Autoboxing
+    -valueOf()
+-> für Ganzzahlen zwischen -128 bis +127
+=> erhält man immer die gleiche Referenz!
+==> hat Auswirkungen auf Vergleiche!
