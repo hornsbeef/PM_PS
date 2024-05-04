@@ -1,0 +1,34 @@
+(i) Was sind Exceptions und warum werden diese benötigt?
+Exceptions in Java sind Objekte, die Fehler oder unerwartete Situationen während der Programmausführung repräsentieren.
+Sie werden benötigt, um auf solche Ausnahmefälle angemessen zu reagieren und das Programm nicht zwangsweise abzubrechen.
+
+
+(ii) Wie unterscheiden sich Exceptions und Assertions?
+Unterscheidung:
+    Zweck:
+    Exceptions werden verwendet, um auf Fehler oder unerwartete Situationen zu reagieren, die während der Programmausführung auftreten können.
+    Assertions dienen dazu, interne Logikfehler im Code zu erkennen, die eigentlich nie auftreten sollten.
+
+    Assertions sind standardmäßig deaktiviert und müssen explizit aktiviert werden, um ausgelöst zu werden. Dies trifft nicht für Exceptions zu.
+    Assertions führen zu einer AssertionError.
+
+
+(iii) Welche Arten von Exceptions gibt es? Beschreiben Sie diese genau!
+gibt 2 Hauptarten:
+    Checked Exceptions:
+    Sind Unterklassen von Exception(ausser RuntimeException), die vom Compiler überprüft werden.
+    Müssen entweder abgefangen (try-catch) oder weitergereicht (throws) werden.
+    Beispiele sind IOException, SQLException, ClassNotFoundException.
+    Checked Exceptions dienen dazu, Fehler zu behandeln, die zur Laufzeit auftreten können, wie z.B. Dateizugriffsfehler oder Datenbankprobleme.
+
+    Unchecked Exceptions:
+    Sind Unterklassen von RuntimeException oder Error.
+    Werden vom Compiler nicht überprüft und müssen nicht explizit behandelt werden.
+    Beispiele von RuntimeException sind NullPointerException, ArrayIndexOutOfBoundsException, IllegalArgumentException.
+    Die Klasse Error repräsentiert schwerwiegende Systemfehler, die normalerweise nicht abgefangen werden.
+    Unchecked Exceptions repräsentieren Programmierfehler, die eigentlich nie auftreten sollten, wie z.B. Division durch Null.
+
+Weiters gibt es die Möglichkeit, dass Benutzer auch eigene Exception-Klassen erstellen können, um spezifische Fehler in ihrem Programm zu behandeln.
+Dies fällt auch unter die Kategorie der Checked Exceptions.
+
+
