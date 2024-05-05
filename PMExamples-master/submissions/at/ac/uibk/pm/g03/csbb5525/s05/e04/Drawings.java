@@ -44,15 +44,29 @@ public class Drawings {
         });
 
 
-        //todo: make more readable!
+
         List<Integer[]> perCircleAfterConversion;
         try {
-            perCircleAfterConversion = perCircleStringBeforeConversion.stream()
-                                                                      .map(it -> Arrays.stream(it)
-                                                                                       .map(inner -> Integer.parseInt(inner))
-                                                                                       .toArray(s -> new Integer[s]))
-                                                                      //.toArray(new Integer[it.length]))
-                                                                      .toList();
+            //make more readable!
+            //perCircleAfterConversion = perCircleStringBeforeConversion.stream()
+            //                                                          .map(it -> Arrays.stream(it)
+            //                                                                           .map(inner -> Integer.parseInt(inner))
+            //                                                                           .toArray(s -> new Integer[s]))
+            //                                                          .toList();
+
+            // .toArray(s -> new Integer[s])) seems a bit overwhelming, therefore rewritten like this:
+            perCircleAfterConversion = perCircleStringBeforeConversion.stream().map(it -> {
+                                                                          Integer[] arr = new Integer[3]; //arraysize is already checked.
+                                                                          int index = 0;
+                                                                          for (String s : it) {
+                                                                              arr[index] = Integer.parseInt(s);
+                                                                              index++;
+                                                                          }
+                                                                          return arr;
+                                                                      }).toList();
+
+
+
 
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("per Circle three numbers are needed! Please check your format");
