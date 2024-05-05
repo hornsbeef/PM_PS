@@ -5,6 +5,9 @@ import codedraw.CodeDraw;
 import java.util.Objects;
 
 public class Circle {
+
+    //all necessary getters and setters created
+
     private final int radius;
     private final int xCoordinate;
     private final int yCoordinate;

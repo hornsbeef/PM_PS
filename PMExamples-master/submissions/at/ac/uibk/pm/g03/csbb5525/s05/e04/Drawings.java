@@ -9,6 +9,8 @@ import java.util.List;
 
 public class Drawings{
 
+    //all necessary getters and setters created
+
     private Circle[] circles;
 
     public void parser(String input) throws IncorrectFormattingException {

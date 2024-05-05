@@ -13,7 +13,7 @@ public class Main {
         Drawings drawings = new Drawings();
         Drawings wrongDrawings = new Drawings();
 
-        try{
+        try {
             drawings.parser("(400,400,175);(576,576,175);(576,225,175);(225,576,175);\n" +
                                     "(225,225,175);(400,400,73);(576,225,175);(400,576,124);\n" +
                                     "(400,225,124);(225,400,124);(400,400,175);(576,400,124)");
@@ -22,21 +22,19 @@ public class Main {
             //wrongDrawings.parser("(400,400,17asf5);(576,576,175);(576,225,175)");
             wrongDrawings.parser("(400,400;175);(576,576,175);(576,225,175)");
 
-        }catch(IllegalArgumentException |IncorrectFormattingException e){
+        } catch (IllegalArgumentException | IncorrectFormattingException e) {
             System.out.println(e.getMessage());
-            System.out.println("\t" + e.getCause().getMessage());
+            System.out.println("\t" + e.getCause()
+                                       .getMessage());
             //e.printStackTrace(); //not sure if StackTrace is wanted here.
         }
-
-
-
 
 
         List<Circle> drawnCircles = new ArrayList<>();
 
 
-        for(Circle c : drawings.getCircles()){
-            if(!drawnCircles.contains(c)){
+        for (Circle c : drawings.getCircles()) {
+            if (!drawnCircles.contains(c)) {
                 c.draw(cd);
                 drawnCircles.add(c);
             }
