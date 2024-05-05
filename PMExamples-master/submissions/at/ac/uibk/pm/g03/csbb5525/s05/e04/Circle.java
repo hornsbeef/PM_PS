@@ -17,7 +17,7 @@ public class Circle {
 
     public void draw(CodeDraw cd){
         cd.drawCircle(xCoordinate, yCoordinate, radius);
-        System.out.println(this.toString());
+        System.out.println(this);
 
     }
 
