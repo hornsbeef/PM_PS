@@ -2,6 +2,9 @@ package at.ac.uibk.pm.g03.csbb5525.s05.e04;
 
 import codedraw.CodeDraw;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -17,7 +20,6 @@ public class Main {
 
             wrongDrawings.parser("(400,400;175);(576,576,175);(576,225,175)");
         }catch(IllegalArgumentException e){
-            
             System.out.println(e.getMessage());
         }
 
@@ -25,10 +27,14 @@ public class Main {
 
 
 
+        List<Circle> drawnCircles = new ArrayList<Circle>();
 
 
         for(Circle c : drawings.getCircles()){
-            c.draw(cd);
+            if(!drawnCircles.contains(c)){
+                c.draw(cd);
+                drawnCircles.add(c);
+            }
         }
 
         cd.show();
