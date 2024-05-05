@@ -11,7 +11,7 @@ public class Drawings{
 
     private Circle[] circles;
 
-    public void parser(String input) {
+    public void parser(String input) throws IncorrectFormattingException {
 
 
         List<String> inputAfterFirstSplit = removeSemicolon(input);
@@ -26,7 +26,9 @@ public class Drawings{
         try{
             checkCorrectFormatting(perCircleStringBeforeConversion);
         }catch(Exception ex){
-            throw new IllegalArgumentException("Formatting was not correct");
+            IncorrectFormattingException e = new IncorrectFormattingException("Formatting was not correct:");
+            e.initCause(ex);
+            throw e;
         }
 
 
@@ -34,8 +36,10 @@ public class Drawings{
         try {
             perCircleAfterConversion = toIntegers(perCircleStringBeforeConversion);
 
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("per Circle three numbers are needed! Please check your format");
+        } catch (NumberFormatException ex) {
+            IncorrectFormattingException e = new IncorrectFormattingException("per Circle three numbers are needed! Please check your format");
+            e.initCause(ex);
+            throw e;
         }
 
 
@@ -59,7 +63,7 @@ public class Drawings{
     }
 
     private static @NotNull List<Integer[]> toIntegers(List<String[]> perCircleStringBeforeConversion) {
-        List<Integer[]> perCircleAfterConversion;
+        //List<Integer[]> perCircleAfterConversion;
         //make more readable!
         //perCircleAfterConversion = perCircleStringBeforeConversion.stream()
         //                                                          .map(it -> Arrays.stream(it)

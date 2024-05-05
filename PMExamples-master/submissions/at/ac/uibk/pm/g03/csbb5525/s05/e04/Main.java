@@ -19,10 +19,13 @@ public class Main {
                                     "(400,225,124);(225,400,124);(400,400,175);(576,400,124)");
 
             //wrongDrawings.parser("");
-            wrongDrawings.parser("(400,400;175, 4);(576,576,175);(576,225,175)");
+            //wrongDrawings.parser("(400,400,17asf5);(576,576,175);(576,225,175)");
+            wrongDrawings.parser("(400,400;175);(576,576,175);(576,225,175)");
 
-        }catch(IllegalArgumentException e){
+        }catch(IllegalArgumentException |IncorrectFormattingException e){
             System.out.println(e.getMessage());
+            System.out.println("\t" + e.getCause().getMessage());
+            //e.printStackTrace(); //not sure if StackTrace is wanted here.
         }
 
 
