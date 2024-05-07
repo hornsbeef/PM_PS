@@ -26,7 +26,7 @@ public class Main {
         /*
         Sorgen Sie dafür, dass jede Exception mindestens einmal geworfen wird.
         Bei Fehlern soll eine entsprechende Ausgabe auf der Konsole erfolgen.
-        -> mir war nicht klar, ob ein e.printStackTrace(); auch gewünscht ist, hab es daher einmal hinzugefügt.
+        -> mir war nicht klar, ob ein e.printStackTrace(); auch gewünscht ist, hab es daher einmal hinzugefügt aber auskommentiert.
          */
 
 
@@ -35,7 +35,7 @@ public class Main {
             managementSystem.addCourse(courseA);    //forcing AlreadyEnrolledException
         } catch (AlreadyEnrolledException |OutOfSpaceException e) {
             System.out.println(e.getMessage());
-            e.printStackTrace();
+            ////e.printStackTrace();
         }
 
         separator();
@@ -44,7 +44,7 @@ public class Main {
             managementSystem.enrollStudentInCourse(studentA, courseA);   //forcing EnrollmentClosedException
         }catch(AlreadyEnrolledException| OutOfSpaceException | EnrollmentClosedException e){
             System.out.println(e.getMessage());
-            e.printStackTrace();
+            //e.printStackTrace();
         }
 
         separator();
@@ -55,7 +55,7 @@ public class Main {
             managementSystem.enrollStudentInCourse(studentA, courseA);   //forcing AllreadyEnrolledException for Student
         }catch(AlreadyEnrolledException| OutOfSpaceException | EnrollmentClosedException e){
             System.out.println(e.getMessage());
-            e.printStackTrace();
+            //e.printStackTrace();
         }
 
         separator();
@@ -65,7 +65,7 @@ public class Main {
             managementSystem.enrollStudentInCourse(studentC, courseA);  //forcing OutOfSpaceException
         }catch(AlreadyEnrolledException| OutOfSpaceException | EnrollmentClosedException e){
             System.out.println(e.getMessage());
-            e.printStackTrace();
+            //e.printStackTrace();
         }
 
         separator();
