@@ -37,6 +37,11 @@ public final class Vector2 {
     public int hashCode() {
         return Objects.hash(x, y);
     }
+    //WICHTIG: immer hashCode zugleich mit der equals() implementieren!
+    //wenn die fehlt kann niemend mit HashMap und ähnlichem mit den Objekten arbeiten!
+    // (evtl ich wenn ichs erst später brauche...)
+
+
 
     //original:
     //@Override

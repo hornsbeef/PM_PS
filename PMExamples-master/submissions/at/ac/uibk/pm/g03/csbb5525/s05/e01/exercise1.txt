@@ -12,6 +12,9 @@ Wrapper-Klassen sind spezielle Klassen, die primitive Datentypen in Objekte umwa
         Wrapper-Klassen können beispielsweise Methoden wie toString() bereitstellen, die direkte Umformung von Strings erlauben.
 
 
+
+
+
 (ii) Erklären Sie anhand eines Beispiels Boxing und Unboxing. Beschreiben Sie das Beispiel ausführlich.
 Umwandlung: primitiv <-> Wrapper
 
@@ -53,3 +56,10 @@ wird angewendet, bei Verwendung von:
 -> für Ganzzahlen zwischen -128 bis +127
 => erhält man immer die gleiche Referenz!
 ==> hat Auswirkungen auf Vergleiche!
+
+
+Achtung wenn Wrapperklasse null annehmen kann-> Autoboxing/AutoUnboxing funktioniert nicht !
+
+
+--> Statische Methoden der Wrapperklassen anschauen!!
+---> vor allem bei Character !!! Test!!!!!!!

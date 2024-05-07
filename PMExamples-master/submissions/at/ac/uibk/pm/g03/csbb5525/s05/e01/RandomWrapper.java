@@ -47,6 +47,12 @@ public class RandomWrapper {
     private final int[] intValues = new int[10];
     private int ivCounter = 0;
 
+
+    //Hinweis: Random ist etwas älter, daher empfohlen RandomGenerator zu verwenden.
+    //RandomGenerator randomizer = RandomGenerator.getDefault();
+
+
+
     private final RandomGenerator random = new Random();
 
 

@@ -31,4 +31,4 @@ gibt 2 Hauptarten:
 Weiters gibt es die Möglichkeit, dass Benutzer auch eigene Exception-Klassen erstellen können, um spezifische Fehler in ihrem Programm zu behandeln.
 Dies fällt auch unter die Kategorie der Checked Exceptions.
 
-
+Gibt auch noch die ERRORs !!

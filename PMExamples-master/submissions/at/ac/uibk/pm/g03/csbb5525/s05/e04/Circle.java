@@ -12,7 +12,7 @@ public class Circle {
     private final int xCoordinate;
     private final int yCoordinate;
 
-    public Circle(int radius, int xCoordinate, int yCoordinate) {
+    public Circle(int xCoordinate, int yCoordinate, int radius) {
         this.radius = radius;
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
@@ -31,6 +31,9 @@ public class Circle {
                 ", xCoordinate=" + xCoordinate +
                 ", yCoordinate=" + yCoordinate +
                 '}';
+
+        //evtl besser mit
+        //return "Circle Radiua: %d ...".formatted(radius);
     }
 
     @Override

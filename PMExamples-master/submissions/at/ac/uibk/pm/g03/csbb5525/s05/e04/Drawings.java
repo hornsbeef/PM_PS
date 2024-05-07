@@ -1,7 +1,7 @@
 package at.ac.uibk.pm.g03.csbb5525.s05.e04;
 
 
-import org.jetbrains.annotations.NotNull;
+//import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,8 +18,13 @@ public class Drawings{
 
         List<String> inputAfterFirstSplit = removeSemicolon(input);
 
+        //testing:
+        //System.out.println(inputAfterFirstSplit.toString());
+
         List<String> inputAfterFirstRemoval = removeBracketsAndNewline(inputAfterFirstSplit);
 
+        //testing:
+        //System.out.println(inputAfterFirstRemoval.toString());
 
         List<String[]> perCircleStringBeforeConversion = inputAfterFirstRemoval.stream()
                                                                                .map(it -> it.split(","))
@@ -28,6 +33,8 @@ public class Drawings{
         try{
             checkCorrectFormatting(perCircleStringBeforeConversion);
         }catch(Exception ex){
+            //hier besser mit der spezifischen Exception abfangen, weil falls eine andere ausser der
+            // erwarteten Exception abfange -> merk ich ja nix mehr davon!!
             IncorrectFormattingException e = new IncorrectFormattingException("Formatting was not correct:");
             e.initCause(ex);
             throw e;
@@ -64,7 +71,7 @@ public class Drawings{
 
     }
 
-    private static @NotNull List<Integer[]> toIntegers(List<String[]> perCircleStringBeforeConversion) {
+    private static List<Integer[]> toIntegers(List<String[]> perCircleStringBeforeConversion) {
         //List<Integer[]> perCircleAfterConversion;
         //make more readable!
         //perCircleAfterConversion = perCircleStringBeforeConversion.stream()
@@ -100,7 +107,7 @@ public class Drawings{
         });
     }
 
-    private static @NotNull List<String> removeBracketsAndNewline(List<String> inputAfterFirstSplit) {
+    private static  List<String> removeBracketsAndNewline(List<String> inputAfterFirstSplit) {
         return inputAfterFirstSplit.stream()
                                    .map(it -> it.replace("(", "")
                                                                                .replace(")", "")
@@ -110,7 +117,7 @@ public class Drawings{
                                    .toList();
     }
 
-    private static @NotNull List<String> removeSemicolon(String input) {
+    private static  List<String> removeSemicolon(String input) {
         return Arrays.stream(input.split(";"))
                      .toList();
     }

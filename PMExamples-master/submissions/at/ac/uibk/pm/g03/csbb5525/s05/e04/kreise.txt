@@ -1,0 +1,4 @@
+
+
+beim UML könnte/sollte man die Exceptions die thrown werden auch noch angeben.
+
