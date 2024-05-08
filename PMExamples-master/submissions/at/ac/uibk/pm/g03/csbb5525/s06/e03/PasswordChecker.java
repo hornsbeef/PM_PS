@@ -6,10 +6,25 @@ public class PasswordChecker {
 
         boolean length = is16long(password);
         boolean twoDigits = hasTwoDigits(password);
+        boolean threeLowerCase = hasThreeLowerCaseLetters(password);
+        boolean twoUpperCase = hasTwoUpperCaseLetters(password);
+        boolean twoSpecialChars = hasTwoSpecialChar(password);
 
-        //testing:
-        return length && twoDigits ? PasswordStrength.STRONG : PasswordStrength.WEAK;
+        //testing:length && twoDigits &&threeLowerCase && twoUpperCase
+        return twoSpecialChars ? PasswordStrength.STRONG : PasswordStrength.WEAK;
 
+    }
+
+    private static boolean hasTwoSpecialChar(String password) {
+        return password.matches(".*[\\-\\?\\!\\%\\&\\=\\+\\[\\]].*[\\-\\?\\!\\%\\&\\=\\+\\[\\]].*");
+    }
+
+    private static boolean hasTwoUpperCaseLetters(String password) {
+        return password.matches(".*[A-Z].*[A-Z].*");
+    }
+
+    private static boolean hasThreeLowerCaseLetters(String password) {
+        return password.matches(".*[a-z].*[a-z].*[a-z].*");
     }
 
     private static boolean hasTwoDigits(String password) {

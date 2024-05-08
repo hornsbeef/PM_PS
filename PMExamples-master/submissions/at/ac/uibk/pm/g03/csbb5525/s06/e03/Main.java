@@ -9,7 +9,7 @@ public class Main {
             User user = new User("a", "b", 31, 12, 1932);
 
             //testing:
-            //System.out.println(pwChecker.checkPassword(user, "1_2asdfasdfasdfasdf").name());
+            System.out.println(pwChecker.checkPassword(user, "-aA s dA").name());
         }catch(DateTimeException e){
             throw new DateTimeException("Wrong format in Birth-Date!\n" + e.getMessage());
         }
