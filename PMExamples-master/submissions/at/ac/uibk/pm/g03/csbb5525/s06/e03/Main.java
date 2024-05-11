@@ -1,7 +1,5 @@
 package at.ac.uibk.pm.g03.csbb5525.s06.e03;
 
-import java.time.DateTimeException;
-
 public class Main {
     public static void main(String[] args) {
         PasswordChecker pwChecker = new PasswordChecker();

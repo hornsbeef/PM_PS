@@ -8,7 +8,7 @@ public class LoggerSpy implements Logger, Spy {
     private LoggerSpy(Logger logger) {
         this.logger = logger;
     }
-
+    //creation method:
     public static LoggerSpy spy(Logger logger) {
         return new LoggerSpy(logger);
     }

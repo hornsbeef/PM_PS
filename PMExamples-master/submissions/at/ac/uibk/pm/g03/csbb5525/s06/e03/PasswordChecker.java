@@ -1,12 +1,14 @@
 package at.ac.uibk.pm.g03.csbb5525.s06.e03;
 
-import static at.ac.uibk.pm.g03.csbb5525.s06.e03.PasswordStrength.*;
+//import static at.ac.uibk.pm.g03.csbb5525.s06.e03.PasswordStrength.*;
+//was not sure, if that is ok to import for Exercises
 
 public class PasswordChecker {
 
-    private static final String illegalChars =     ".*"+
-                                            "[^a-zA-Z0-9?\\-!%&=+\\[\\]]"+
-                                            ".*";
+    private static final String illegalChars =
+            ".*"+
+            "[^a-zA-Z0-9?\\-!%&=+\\[\\]]"+
+            ".*";
     private int passwordStrengthCounter = 0;
 
     public PasswordStrength checkPassword(User user, String password) throws PasswordIllegalException {
@@ -30,10 +32,10 @@ public class PasswordChecker {
     //extracted for testing purposes.
     PasswordStrength passwordStrengthTranslator(int counter) {
         return switch (counter) {
-            case 0, 1 -> TOO_WEAK;
-            case 2 -> WEAK;
-            case 3, 4 -> MEDIUM;
-            case 5 -> STRONG;
+            case 0, 1 -> PasswordStrength.TOO_WEAK;
+            case 2 -> PasswordStrength.WEAK;
+            case 3, 4 -> PasswordStrength.MEDIUM;
+            case 5 -> PasswordStrength.STRONG;
             default -> throw new IllegalStateException("Unexpected value: " + passwordStrengthCounter);
         };
     }

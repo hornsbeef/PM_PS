@@ -10,6 +10,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import java.lang.reflect.Method;
 
 import static org.junit.jupiter.api.Assertions.*;
+//must be static
 
 public class PasswordCheckerTest {
 
@@ -36,7 +37,7 @@ public class PasswordCheckerTest {
     @Test
     @DisplayName("Test:PasswordChecker:length")
     void testLength() throws NoSuchMethodException, IllegalAccessException,  java.lang.reflect.InvocationTargetException {
-                //just for learning purposes: trying how to access a private static method for testing, using
+        //just for learning purposes: trying how to access a private static method for testing, using
         //java.lang.reflect
         //accessing private Methods seems like a bad thing considering OOP and testing ideals;
         //How to better test methods that do not need to be public, but need testing?
@@ -131,6 +132,7 @@ public class PasswordCheckerTest {
         User user = new User("First", "Last", 12, 2, 2022);
         assertEquals(PasswordStrength.MEDIUM, checker.checkPassword(user, password));
     }
+
     @ParameterizedTest(name = "Check Strength STRONG")
     @ValueSource(strings = {"LAfir!!131011ffff", "passsssword13AF]&", "1&345AB!asdfasdf"})
     void testStrengthStrong(String password) throws PasswordIllegalException{
