@@ -9,7 +9,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@TestInstance(Lifecycle.PER_CLASS)
+@TestInstance(Lifecycle.PER_CLASS)  //needed for setUp() -> could be done by doing setup
 public class PalindromeCheckerTest {
 
     private PalindromeChecker palindromeChecker;

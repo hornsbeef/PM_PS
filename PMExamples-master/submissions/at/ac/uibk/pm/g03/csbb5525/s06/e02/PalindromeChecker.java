@@ -20,6 +20,7 @@ public class PalindromeChecker {
                 break;
             }
         }
+        //would have been doable with makeing sequ and reverse a String -> and comparing with equals
 
         return isequal;
 
