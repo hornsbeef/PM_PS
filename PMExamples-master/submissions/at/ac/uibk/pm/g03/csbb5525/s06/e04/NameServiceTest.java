@@ -2,11 +2,14 @@ package at.ac.uibk.pm.g03.csbb5525.s06.e04;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestTemplate;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class NameServiceTest {
+
+    public NameServiceTest(){}
 
     @Test
     void constructFullName() {
@@ -72,5 +75,15 @@ class NameServiceTest {
     }
 
 
-
+    @Test
+    @DisplayName("myTest")
+    public void myTest(){
+        double actual = 1d / 3d;
+        double expected = 0.333;
+        assertAll(
+                //() -> assertEquals(expected, actual, "this probably fails"),
+                //() -> assertEquals(expected, actual, 0.0001, "this fails as well"),
+                () -> assertEquals(expected, actual, 0.001, "this works")
+                );
+    }
 }
