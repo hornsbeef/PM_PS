@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ProductTest {
 
+    //TODO: ? implement check for getLastUpdateUTC() ?
+
     @Test
     public void olderProduct() {
         Product product = Product.create("Product A", "9.99", 2021, 7);
