@@ -4,7 +4,8 @@ public class Fibonacci {
 
     public static long fibonacci(int n) throws IllegalArgumentException {
         if (n < 0) {
-            throw new IllegalArgumentException();
+            IllegalArgumentException illArg = new IllegalArgumentException();
+            throw illArg ;
         }
         if (n == 0) {
             return 0;
