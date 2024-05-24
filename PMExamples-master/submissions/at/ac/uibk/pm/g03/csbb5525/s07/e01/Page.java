@@ -1,5 +1,6 @@
 package at.ac.uibk.pm.g03.csbb5525.s07.e01;
 
+import java.time.format.DateTimeFormatter;
 import java.util.Stack;
 
 public class Page {
@@ -35,11 +36,20 @@ public class Page {
 
     private static final String DATE_TIME_PATTERN = "yyyy-MM-dd HH:mm";
 
+
     public static String render(Stack<Product> products) {
         StringBuilder productsHtmlBuilder = new StringBuilder();
 
-
-
+        products.forEach(p -> {
+                    productsHtmlBuilder.append(PRODUCT_TEMPLATE.formatted(p.getName(),
+                                                                          p.getNetPrice(),
+                                                                          p.getGrossPrice(),
+                                                                          p.getFormattedReleaseDate(),
+                                                                          p.getLastUpdateUTC().format(DateTimeFormatter.ofPattern(DATE_TIME_PATTERN))));
+                });
+        while (!products.isEmpty()) {
+            products.pop();
+        }
         String productsHtml = productsHtmlBuilder.toString().stripTrailing();
         return PAGE_TEMPLATE.formatted(productsHtml);
     }

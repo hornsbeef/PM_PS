@@ -18,7 +18,8 @@ public class Product {
     private final LocalDate releaseDate;
     private final ZonedDateTime lastUpdate;
 
-    private Product(String name, BigDecimal netPrice, LocalDate releaseDate, ZonedDateTime lastUpdate) {
+    //private Product(String name, BigDecimal netPrice, LocalDate releaseDate, ZonedDateTime lastUpdate) {
+    Product(String name, BigDecimal netPrice, LocalDate releaseDate, ZonedDateTime lastUpdate) {
         this.name = name;
         this.netPrice = netPrice;
         this.releaseDate = releaseDate;
@@ -60,12 +61,11 @@ public class Product {
             return yearsBetween +" years ago";
         }
         return releaseDate.toString();
-
-
     }
 
     public LocalDateTime getLastUpdateUTC() {
-        return lastUpdate.withZoneSameInstant(UTC).toLocalDateTime();
-
+        return getLastUpdate().withZoneSameInstant(UTC).toLocalDateTime();
     }
+
+
 }

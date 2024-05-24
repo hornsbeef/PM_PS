@@ -1,0 +1,15 @@
+Welche Schwierigkeiten können beim Testen von Product.getLastUpdateUTC() mit-
+tels Unit-Test auftreten? Halten Sie Ihre Antwort in exercise1.txt fest.
+Tipp: Achten Sie darauf, wo Product.lastUpdate herkommt und wie es gesetzt wird.
+
+Es könnte zu Problemen mit unterschiedlichen Zeitzonen und "daylight-saving" kommen,
+und wenn ZoneDateTime.now() verwendet wird, könnte es zu Problemen kommen,
+da sich die aktuelle Zeit ändert - mit Nanoseconds evtl auch relevant während der Programmlaufzeit.
+
+Wie könnte man mit den in der vorherigen Teilaufgabe genannten Schwierigkeiten
+umgehen? Erweitern Sie exercise1.txt um Ihre Lösungsvorschläge
+
+Man könnte die Methode getLastUpdate() Overriden mit einem fixen Wert. Damit sollte der
+Aspekt der sich ändernden Zeit für unterschiedliche Tests wegfallen.
+Aber dafür muss der Konstruktor von private zu zB package-private geändert werden.
+kurze implementierung in der ProductTest.java.
