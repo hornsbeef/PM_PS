@@ -38,8 +38,7 @@ public class Page {
     public static String render(Stack<Product> products) {
         StringBuilder productsHtmlBuilder = new StringBuilder();
 
-        // TODO: Consume the products stack, thereby rendering HTML for each product and appending it to the productsHtmlBuilder
-        throw new UnsupportedOperationException("Not yet implemented");
+
 
         String productsHtml = productsHtmlBuilder.toString().stripTrailing();
         return PAGE_TEMPLATE.formatted(productsHtml);

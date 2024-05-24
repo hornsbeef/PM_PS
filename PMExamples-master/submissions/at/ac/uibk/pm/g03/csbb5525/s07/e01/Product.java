@@ -66,5 +66,6 @@ public class Product {
 
     public LocalDateTime getLastUpdateUTC() {
         return lastUpdate.withZoneSameInstant(UTC).toLocalDateTime();
+
     }
 }
