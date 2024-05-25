@@ -50,7 +50,7 @@ public class Directory implements Iterable<String> {
         //TreeMap should be ordered by natural ordering of its keys
         var temp = this.namesByAge.entrySet()
                                   .stream()
-                                  .limit(n)
+                                  .limit(n) //here profit form TreeMap!
                                   .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
         return new Directory(temp);
     }
