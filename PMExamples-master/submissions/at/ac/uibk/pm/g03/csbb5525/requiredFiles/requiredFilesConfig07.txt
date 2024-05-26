@@ -1,0 +1,11 @@
+at/ac/uibk/pm/gXX/zidUsername/s07/e01/exercise1.txt
+at/ac/uibk/pm/gXX/zidUsername/s07/e01/Main.java
+at/ac/uibk/pm/gXX/zidUsername/s07/e01/Page.java
+at/ac/uibk/pm/gXX/zidUsername/s07/e01/Product.java
+at/ac/uibk/pm/gXX/zidUsername/s07/e01/ProductTest.java
+at/ac/uibk/pm/gXX/zidUsername/s07/e02/AdvancingDirectoryIterator.java
+at/ac/uibk/pm/gXX/zidUsername/s07/e02/Directory.java
+at/ac/uibk/pm/gXX/zidUsername/s07/e02/DirectoryTest.java
+at/ac/uibk/pm/gXX/zidUsername/s07/e02/Main.java
+at/ac/uibk/pm/gXX/zidUsername/s07/e02/Member.java
+at/ac/uibk/pm/gXX/zidUsername/s07/e02/QueueDirectoryIterator.java
