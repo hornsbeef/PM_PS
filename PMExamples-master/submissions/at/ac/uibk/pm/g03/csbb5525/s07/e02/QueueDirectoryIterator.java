@@ -5,16 +5,22 @@ import java.util.stream.Collectors;
 
 public class QueueDirectoryIterator implements Iterator<String> {
 
-    private Queue<String> queue;
+    private final Queue<String> queue;
 
 
     public QueueDirectoryIterator(Map<Integer, List<String>> namesByAge) {
-        //TODO: errorchecking - IllegalArgumentException(); ?
         this.queue = namesByAge.entrySet()
                                .stream()
-                               .map(it -> {
-                                 return "%s (%d)".formatted(it.getValue(), it.getKey());
-                             })
+                               //stream of Entries of <Integer, List<String>>
+                               .map(entry -> {
+                                   int age = entry.getKey();
+                                   List<String> namesWithThisAge = entry.getValue();
+                                   return namesWithThisAge.stream()
+                                                          .map(name -> "%s (%d)".formatted(name, age));
+                               })
+                               //->stream of Streams of Strings
+                               .flatMap(it -> it)
+                               //-> Stream of Strings
                                .collect(Collectors.toCollection(LinkedList::new));
     }
 

@@ -14,11 +14,21 @@ public class Directory implements Iterable<String> {
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    //creates Map<Integer, List<String>> grouping names by age.
+    //Cave: also needs to be sorted form lowest to highest age. -> TreeMap
+    //groupingBy returns a Map, where the key is the age, and the values are List<member-names = String>
+    //the age is used to determine how each member will be grouped
+    //the TreeMap::new specifies the type of Map to be used for storing the grouped elements -> sorted by ascending age
+    //Collectors.mapping(Member::getName, toList()):
+        //Member::getName -> gives the name of a member
+        //toList() collects all the input elements into a List, in encounter order
     public Directory(Collection<Member> members) {
         this.namesByAge = members.stream()
-                                 .collect(Collectors.groupingBy(Member::getAge, Collectors.mapping(Member::getName, toList())));
-        //https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/Collectors.html#groupingBy(java.util.function.Function)
+                                 .collect(Collectors.groupingBy(Member::getAge,
+                                                                TreeMap::new,
+                                                                Collectors.mapping(Member::getName, toList()))
+                                 );
+        //https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/Collectors.html#groupingBy(java.util.function.Function,java.util.function.Supplier,java.util.stream.Collector)
         //https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#mapping-java.util.function.Function-java.util.stream.Collector-
     }
 
@@ -56,13 +66,23 @@ public class Directory implements Iterable<String> {
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    // unmodifiable List of names
+    //intelliJ always wants to replace .collect(Collectors.toUnmodifiableList()); with .toList();
+    //which works.
+    //Cave: Stream.toList() and Collectors.toList() are different
+    //https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/Stream.html#toList()
     public List<String> listNames() {
         return namesByAge.values()
                          .stream()
                          .flatMap(Collection::stream)
+                         .toList();
+
+        /*
+        return namesByAge.values()
+                         .stream()
+                         .flatMap(Collection::stream)
                          .collect(Collectors.toUnmodifiableList());
-        //return namesByAge.values().stream().collect(Collectors.toUnmodifiableList());
+         */
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
