@@ -29,6 +29,8 @@ public class StringManipulatorTest {
         String input = "abcd efgh ijkl!!.1";
         String expected ="Abcd Efgh Ijkl!!.1";
         assertEquals(expected, StringManipulator.capitalizeWords(input));
+        //actually check the special Character at the point in the string where it actually changes!
+        //so only fist Character of a word!!
 
     }
 

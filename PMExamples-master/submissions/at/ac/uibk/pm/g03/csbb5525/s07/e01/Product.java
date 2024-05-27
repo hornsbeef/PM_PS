@@ -45,6 +45,7 @@ public class Product {
     public static Product create(String name, String netPrice, int releaseYear, int updatedDaysAgo) {
         BigDecimal netPriceNum = new BigDecimal(netPrice);
         LocalDate releaseDate = LocalDate.of(releaseYear, 1, 1).with(firstInMonth(FRIDAY));
+        //legt für LocalDate und dann mit .with(..) je eigentlich ein eignes unveränderliches Objekt
         ZonedDateTime lastUpdate = ZonedDateTime.now().minusDays(updatedDaysAgo);
         return new Product(name, netPriceNum, releaseDate, lastUpdate);
     }
