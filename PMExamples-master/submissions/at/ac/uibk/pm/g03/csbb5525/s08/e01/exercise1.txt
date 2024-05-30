@@ -1,0 +1,13 @@
+a) Was ist der Zweck der Verwendung von Generics in Java?
+Der Zweck der Verwendung von Generics in Java ist die Gewährleistung von Typsicherheit
+durch die Implementierung von parametrisierten Typen und Methoden.
+Generics ermöglichen es, Daten und Algorithmen zu beschreiben, die mit verschiedenen Datentypen arbeiten können, ohne die Beschreibung der Algorithmen zu ändern. Dies führt zu einer stärkeren Typprüfung während der Kompilierung und vermeidet explizite Casts (Typumwandlungen) bei der Verwendung von generischen Klassen und Methoden[1][2][3][4][5].
+
+
+
+b) Was ist der Unterschied zwischen <? extends T> und <? super T> in Java Generics?
+c) Was ist der Unterschied zwischen <T> und <T extends Comparable<T>> in Java Generics?
+Welche Möglichkeiten bietet diese Erweiterung?
+d) Betrachten Sie den folgenden Code. Warum ist der blau hervorgehobene Parameter-Typ (Integer)
+nicht unbedingt erforderlich?
+List<Integer> list = new ArrayList<Integer>();
