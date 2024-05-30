@@ -1,13 +1,45 @@
 a) Was ist der Zweck der Verwendung von Generics in Java?
 Der Zweck der Verwendung von Generics in Java ist die Gewährleistung von Typsicherheit
 durch die Implementierung von parametrisierten Typen und Methoden.
-Generics ermöglichen es, Daten und Algorithmen zu beschreiben, die mit verschiedenen Datentypen arbeiten können, ohne die Beschreibung der Algorithmen zu ändern. Dies führt zu einer stärkeren Typprüfung während der Kompilierung und vermeidet explizite Casts (Typumwandlungen) bei der Verwendung von generischen Klassen und Methoden[1][2][3][4][5].
-
+Generics ermöglichen es, Daten und Algorithmen zu beschreiben, die mit verschiedenen Datentypen arbeiten können,
+ohne die Beschreibung der Algorithmen zu ändern.
+Dies verhindert den Verlust von TypInformationen, und führt zu einer stärkeren Typprüfung während der Kompilierung,
+ und vermeidet explizite Casts (Typumwandlungen) bei der Verwendung von generischen Klassen und Methoden.
 
 
 b) Was ist der Unterschied zwischen <? extends T> und <? super T> in Java Generics?
+Der Unterschied zwischen <? extends T> und <? super T> in Java Generics liegt darin,
+dass sie unterschiedliche Einschränkungen für die Typenparameter in Java Generics darstellen.
+
+<? extends T> (Unterklasse von T):
+<? extends T> bedeutet, dass der Typparameter T und alle seine Unterklassen akzeptiert werden.
+Dies bedeutet, dass die Methode oder Klasse nur mit Objekten von T und seinen Unterklassen verwendet werden kann.
+Dies ist nützlich, wenn man eine Methode schreibt, die auf eine bestimmte Klasse und ihre Unterklassen anwendbar ist.
+(Producer extends)
+
+<? super T> (Überklasse von T):
+<? super T> bedeutet, dass der Typparameter T und alle seine Oberklassen akzeptiert werden.
+Dies bedeutet, dass die Methode oder Klasse nur mit Objekten von T und seinen Oberklassen verwendet werden kann.
+Dies ist nützlich, wenn man eine Methode schreibt, die auf eine bestimmte Klasse und ihre Oberklassen anwendbar ist.
+(Consumer super)
+
 c) Was ist der Unterschied zwischen <T> und <T extends Comparable<T>> in Java Generics?
 Welche Möglichkeiten bietet diese Erweiterung?
+
+Bei <T> kann T ein beliebiger Typ sein, der als Typparameter übergeben wird. Es gibt keine Einschränkungen für T.
+
+Bei <T extends Comparable<T>> muss T jedoch zusätzlich die folgenden Bedingungen erfüllen:
+T muss mit sich selbst vergleichbar sein, und dafür muss T
+ entweder selbst die Comparable-Schnittstelle implementieren oder eine Unterklasse einer Klasse sein, die Comparable implementiert
+Diese Erweiterung bietet folgende Vorteile:
+    Sie stellt sicher, dass Objekte vom Typ T miteinander verglichen werden können,
+     und ermöglicht es, Methoden zu schreiben, die nur mit Typen arbeiten, die Comparable implementieren, z.B. Collections.sort(List<T>)
+
+
 d) Betrachten Sie den folgenden Code. Warum ist der blau hervorgehobene Parameter-Typ (Integer)
 nicht unbedingt erforderlich?
 List<Integer> list = new ArrayList<Integer>();
+Der blau hervorgehobene Parameter-Typ (Integer) ist in diesem Fall nicht unbedingt erforderlich,
+da Java die Möglichkeit der "Diamant-Notation" eingeführt hat.
+Mit der Diamant-Notation können  Typparameter bei der Instanziierung einer generischen Klasse weglassen werden,
+wenn sie aus dem Kontext eindeutig abgeleitet werden können.
