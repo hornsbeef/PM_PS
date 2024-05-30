@@ -1,0 +1,34 @@
+Wozu werden Wildcards verwendet?
+Nennen Sie 3 Beispiele für die Verwendung von Wildcards.
+
+Wildcards in Java sind Platzhalter für unbekannte Typen in generischen Programmen.
+Sie werden verwendet, um den Code flexibler und wiederverwendbarer zu machen, ohne die Typsicherheit zu opfern.
+
+Bsp mit Unbegrenzter Wildcard:
+
+void printCollection(Collection<?> c) {
+  for (Object o : c) {
+    System.out.println(o);
+  }
+}
+
+Bsp mit Obergrenzter Wildcard:
+ -> unbekannten Typ, der ein Subtyp der angegebenen Klasse oder Schnittstelle ist.
+
+ void printList(List<? extends Number> numbers) {
+   for (Number number : numbers) {
+     System.out.println(number);
+   }
+ }
+Diese Methode kann dann mit Listen von Number-Objekten oder Subtypen von Number verwendet werden, z. B. Integer, Double
+
+
+Bsp mit Untergrenzter Wildcard:
+ -> unbekannten Typ, der ein Supertyp der angegebenen Klasse oder Schnittstelle ist
+
+ public static void addNumbers(List<? super Integer> list) {
+     for (int i = 1; i <= 10; i++) {
+         list.add(i);
+     }
+ }
+ https://docs.oracle.com/javase%2Ftutorial%2F/java/generics/lowerBounded.html
