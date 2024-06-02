@@ -1,0 +1,7 @@
+at/ac/uibk/pm/gXX/zidUsername/s08/e01/exercise1.txt
+at/ac/uibk/pm/gXX/zidUsername/s08/e02/SortedTriple.java
+at/ac/uibk/pm/gXX/zidUsername/s08/e02/SortedTripleApplication.java
+at/ac/uibk/pm/gXX/zidUsername/s08/e03/Exercise3.java
+at/ac/uibk/pm/gXX/zidUsername/s08/e03/Exercise3Test.java
+at/ac/uibk/pm/gXX/zidUsername/s08/e04/exercise4.txt
+at/ac/uibk/pm/gXX/zidUsername/s08/e04/NumberPrinter.java
