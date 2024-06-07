@@ -1,0 +1,10 @@
+Warum reicht es in diesem Fall nicht aus Comparable<T> für Product zu implementieren?
+In welchem Fall sollte Comparable<T> eingesetzt werden? Geben Sie Ihre Lösung in der exercise1.txt-
+Datei ab.
+
+
+weil mit Comparable<T> nur nach einer zuvor bestimmten Sortierung sortiert werden kann.
+Wir wollen nach unterschiedlichen Sortierungen sortieren können -> brauchen daher Comparator.
+
+Wenn wir nur eine Sortierordnung haben wollen reicht Comparable aus.
+Ebenso wenn wir eine Default-Sortierordnung haben wollen, ist Comparable gut.
