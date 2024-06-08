@@ -5,10 +5,10 @@ import java.util.Date;
 
 public class Order implements Comparable<Order>{
 
-    private int id;
-    private String customer;
-    private double sum;
-    private Date date;
+    private final int id;
+    private final String customer;
+    private final double sum;
+    private final Date date;    //explicitly Date in requirements - would have otherwise used LocalDate
 
     public Order(int id, String customer, double sum, Date date) {
         this.id = id;
