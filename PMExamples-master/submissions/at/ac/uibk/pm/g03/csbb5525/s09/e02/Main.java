@@ -14,6 +14,8 @@ public class Main {
         ).toList();
 
         OrderProcessor.filterOrderByCustomer(list, "Andreas").forEach(System.out::println);
+
+        System.out.println(OrderProcessor.calculateTotalRevenue(list));
     }
 
 
