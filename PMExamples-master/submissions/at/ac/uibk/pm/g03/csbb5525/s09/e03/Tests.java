@@ -46,12 +46,7 @@ public class Tests {
         BankAccount a2 = bank.getAccount("qwert1").orElseThrow(NoSuchElementException::new);
         Executable when1 = () -> bank.getAccount("no_such_IBAN").orElseThrow(NoSuchElementException::new);
 
-        bank.getAllAccountsInfo().forEach(System.out::println);
-        System.out.println("-".repeat(23));
 
-
-        bank.closeAccount("qwert");
-        bank.getAllAccountsInfo().forEach(System.out::println);
 
 
         assertAll(
