@@ -1,7 +1,5 @@
 package at.ac.uibk.pm.g03.csbb5525.s09.e03;
 
-import at.ac.uibk.pm.g03.csbb5525.s04.e03.B;
-
 import java.math.BigDecimal;
 
 public class Main {

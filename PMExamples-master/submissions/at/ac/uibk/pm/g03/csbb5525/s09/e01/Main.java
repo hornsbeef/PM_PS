@@ -24,7 +24,6 @@ public class Main {
 
 
         warehouse.print(warehouse.sort((it1, it2) -> {
-                                           //todo:
                                            // sort by availability then by name;
                                            int availabilityCompare = -Integer.compare(it1.getAvailability(), it2.getAvailability());
                                            if (availabilityCompare != 0) {

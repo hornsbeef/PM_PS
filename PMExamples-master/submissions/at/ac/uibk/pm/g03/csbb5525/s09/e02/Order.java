@@ -30,6 +30,7 @@ public class Order implements Comparable<Order>{
     }
 
     @Override
+    //should have natural order by Date -> therefore (maybe) does not conform with equals!
     public int compareTo(Order o) {
         return date.compareTo(o.getDate());
     }

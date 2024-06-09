@@ -47,11 +47,10 @@ public class Tests {
         Executable when1 = () -> bank.getAccount("no_such_IBAN").orElseThrow(NoSuchElementException::new);
 
 
-
-
         assertAll(
                 () -> assertThrows(NoSuchElementException.class, when1),
-                () -> {
+                () -> assertEquals(List.of("Andreas", "Johannes"), bank.getAllAccountsInfo(BankAccount::getOwner))
+                ,() -> {
                     a1.withdraw(BigDecimal.valueOf(11));
                     assertEquals(BigDecimal.valueOf(-16), a1.getBalance());
                 },
@@ -68,8 +67,5 @@ public class Tests {
         );
 
     }
-
-
-
 
 }

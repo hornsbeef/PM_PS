@@ -3,7 +3,6 @@ package at.ac.uibk.pm.g03.csbb5525.s09.e03;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -42,7 +41,7 @@ public class Bank {
             return; // ? is this even needed?
         }
         else{
-            accounts.removeIf(it-> IBAN.equals(it.getIBAN()));
+            accounts.removeIf(it-> IBAN.equals(it.getIBAN()));  //CAVE: foreach(it -> accounts.remove(it)) funktioniert nicht weil Struktur unter iterator verändert wird.
         }
     }
 
