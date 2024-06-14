@@ -20,5 +20,6 @@ public class Main {
         System.out.println("VM: "+ vm.getProcesses());
         System.out.println("VM2: "+ vm2.getProcesses());
         System.out.println("VM3: "+ vm3.getProcesses());
+
     }
 }
