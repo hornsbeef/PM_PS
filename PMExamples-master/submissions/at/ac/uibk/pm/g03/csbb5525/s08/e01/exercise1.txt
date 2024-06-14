@@ -43,3 +43,8 @@ Der blau hervorgehobene Parameter-Typ (Integer) ist in diesem Fall nicht unbedin
 da Java die Möglichkeit der "Diamant-Notation" eingeführt hat.
 Mit der Diamant-Notation können  Typparameter bei der Instanziierung einer generischen Klasse weglassen werden,
 wenn sie aus dem Kontext eindeutig abgeleitet werden können.
+
+!!!!!!!!
+gut zu verwenden:
+public static <T extends Comparable<? super T>< T findMax(...) {...}
+    --> das heisst es gilt auch für alle typen, dessen supertypen das Comparable implementieren.

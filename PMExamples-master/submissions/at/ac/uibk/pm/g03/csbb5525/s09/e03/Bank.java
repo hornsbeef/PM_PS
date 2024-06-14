@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class Bank {
 
@@ -15,7 +16,14 @@ public class Bank {
         this.accounts = new ArrayList<>();
     }
 
+
+
     public void addAccount(AccountType accountType, String IBAN, String owner, BigDecimal balance){
+       //could use a null-check!
+        if(accountType == null || IBAN == null || owner == null || balance == null){
+            throw new RuntimeException(" ... cannot be null! ");    //other exception type might be better !
+        }
+
         switch (accountType) {
             case SAVING -> {
                 var temp = new BankAccount.SavingsAccount(IBAN, owner, balance);
@@ -37,12 +45,31 @@ public class Bank {
     }
 
     public void closeAccount(String IBAN){
-        if(IBAN == null){
-            return; // ? is this even needed?
-        }
-        else{
-            accounts.removeIf(it-> IBAN.equals(it.getIBAN()));  //CAVE: foreach(it -> accounts.remove(it)) funktioniert nicht weil Struktur unter iterator verändert wird.
-        }
+        //removes account from list
+        //if(IBAN == null){
+        //    return; // ? is this even needed?
+        //}
+        //else{
+        //    accounts.removeIf(it-> IBAN.equals(it.getIBAN()));  //CAVE: foreach(it -> accounts.remove(it)) funktioniert nicht weil Struktur unter iterator verändert wird.
+        //}
+
+        //maybe better?
+        //Optional<BankAccount> acc = getAccount(IBAN);
+        //acc.ifPresentOrElse(
+        //        accounts::remove,
+        //        () -> {
+        //            throw new IllegalArgumentException("not available");
+        //        }
+        //);
+
+        //? alternative
+        accounts.stream()
+                .filter(input -> IBAN != null)
+                .filter(account -> IBAN.equals(account.getIBAN()))
+                .collect(Collectors.toCollection(ArrayList::new))
+                .removeAll(accounts);
+
+
     }
 
     public void closeAccount(Predicate<BankAccount> predicate){
@@ -71,7 +98,8 @@ public class Bank {
         return accounts.stream().toList();
     }
 
-    enum AccountType{
+    public enum AccountType //! should be public !!
+    {
         SAVING,
         GIRO;
     }
