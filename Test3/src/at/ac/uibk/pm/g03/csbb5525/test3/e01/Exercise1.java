@@ -2,6 +2,7 @@ package at.ac.uibk.pm.g03.csbb5525.test3.e01;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Exercise1 {
@@ -10,7 +11,7 @@ public class Exercise1 {
 
         List<T> temp = new ArrayList<>(list1);
         temp.addAll(list2);
-        Collections.sort(temp);
+        Collections.sort(temp); //evtl besser:  temp.sort(Comparator.naturalOrder());
         return temp;
     }
 

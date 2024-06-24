@@ -1,8 +1,10 @@
 package at.ac.uibk.pm.g03.csbb5525.test3.e02;
 
+import java.util.Comparator;
 import java.util.Objects;
 
-public class Employee implements Comparable<Employee>{
+public class Employee implements Comparable<Employee> //evtl mit <? super Employee>
+{
 
     private String name;
     private int age;
@@ -52,6 +54,17 @@ public class Employee implements Comparable<Employee>{
             return Integer.compare(this.salary, o.getSalary());
         }
     }
+
+    //alternativ von Prof:
+    //private static Comparator<Employee> EMPLOYEE_COMPARATOR = Comparator.comparing(Employee::getName, String.CASE_INSENSITIVE_ORDER)
+    //        .thenComparing(Employee::getAge)
+    //        .thenComparing(Employee::getSalary);
+    //
+    //public int compareTo(Employee o){
+    //    return EMPLOYEE_COMPARATOR.compare(this, o);
+    //
+    //}
+
 
     @Override
     public String toString() {
