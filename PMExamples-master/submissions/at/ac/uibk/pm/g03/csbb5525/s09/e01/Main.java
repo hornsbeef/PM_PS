@@ -14,6 +14,7 @@ public class Main {
         Product p3 = new Product("Something", 99, BigDecimal.valueOf(0.22), 100);
 
         Stream.of(p1, p2, p3).forEach(warehouse::add);
+        //works because is not iterating over a Collection/data-Structure, therefor no problem!
 
         warehouse.print(warehouse.sort(new NameComparator()));
         System.out.println("-".repeat(20));
@@ -39,7 +40,6 @@ public class Main {
         System.out.println("-".repeat(20));
         System.out.println("Should yield the same result:");
         warehouse.print(warehouse.sort((new AvailabilityComparator()).thenComparing(new NameComparator())));
-
 
 
 

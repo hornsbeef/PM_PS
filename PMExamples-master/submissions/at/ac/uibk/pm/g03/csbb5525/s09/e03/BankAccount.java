@@ -83,7 +83,9 @@ public class BankAccount {
      *  Does this variant have any merits?
      */
     public static class GiroAccount extends BankAccount{
-        private final BigDecimal OVERDRAFT_FEE = BigDecimal.valueOf(15);
+        //private final BigDecimal OVERDRAFT_FEE = BigDecimal.valueOf(15); bei BigDecimal besser den String-constructor!!
+        private final BigDecimal OVERDRAFT_FEE = new BigDecimal("15");
+
         private BigDecimal balance;
 
         public GiroAccount(String IBAN, String owner, BigDecimal balance) {

@@ -18,6 +18,17 @@ public class OrderProcessor {
 
     }
 
+    //alternative
+    public static List<Order> filterOrderByCustomer2(List<Order> orders, String customerName) {
+
+        return Optional.ofNullable(orders).orElseGet(Collections::emptyList).stream().filter(
+                order -> order != null && order.getCustomer().equalsIgnoreCase(customerName)
+        ).toList();
+    }
+
+
+
+
     public static double calculateTotalRevenue(List<Order> orders) {
         return Optional.ofNullable(orders)
                        .map(
@@ -27,6 +38,11 @@ public class OrderProcessor {
                                                        .<Double>mapMulti((order, downstream) -> downstream.accept(order.getSum()))
                                                        .reduce(0.0, Double::sum)
                        ).orElse(0.0);
+
+
+        //alternative
+        //Foto:
+        //Optional.ofNullable(orders).orElseGet(Collections::emptyList).stream(). ....
 
     }
 

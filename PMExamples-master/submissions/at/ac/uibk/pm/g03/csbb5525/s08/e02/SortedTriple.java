@@ -13,6 +13,8 @@ public class SortedTriple<T extends Comparable<T>> {
 
     public SortedTriple(T a, T b, T c){
         List<T> list = Arrays.asList(a,b,c);
+        //List<T> list = new ArrayList<>(List.of(a,b,c)); //BESSER? nicht unbedingt - nur anders
+
         Collections.sort(list);
         this.first = list.get(0);
         this.second = list.get(1);
