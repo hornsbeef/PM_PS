@@ -3,6 +3,8 @@ package at.ac.uibk.pm.streams;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * Class shows Java's functionality for reading files, folders and information
@@ -33,6 +35,23 @@ public class FileApplication {
         if (Files.isDirectory(relativePath)) {
             try {
                 Files.list(relativePath).forEach(System.out::println);
+
+                System.out.println("-".repeat(20));
+                var test = Files.list(relativePath)
+                                .map(x -> x.getFileName())
+                                .map(x -> x.toString())
+                                .sorted()
+                                .toList();
+                //test.forEach(System.out::println);
+                System.out.println(String.join(", ", test));
+
+                System.out.println("-".repeat(20));
+                Set<String> set = new TreeSet<>();
+                set.add("abc");
+                set.add("ghi");
+                set.add("def");
+                System.out.println(set);
+
             } catch (IOException e) {
                 System.out.println("There was a problem reading the files in the given directory.");
                 e.printStackTrace();
