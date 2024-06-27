@@ -14,7 +14,7 @@ public class Process implements Comparable<Process>{
         }
         this.processId = processId;
         this.currentMemoryUsageInGb = currentMemoryUsageInGb;
-        thisRunsOn.addProcess(this);
+        //thisRunsOn.addProcess(this); this should be done in the physical/vm ! with its own function! -> addProcess()
     }
 
     public long getProcessId() {

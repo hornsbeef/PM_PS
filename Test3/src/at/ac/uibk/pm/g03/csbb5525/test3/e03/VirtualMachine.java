@@ -17,6 +17,7 @@ public class VirtualMachine extends Process implements Machine {
         this.availableMemoryInGb = availableMemoryInGb;
         this.physicalMachineThisVMisRunningOn = physicalMachine;
         physicalMachine.addProcess(this);
+
     }
 
 

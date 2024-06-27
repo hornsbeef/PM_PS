@@ -10,6 +10,11 @@ public interface Machine {
 
 
     default double getTotalProcessMemory() {
+        //System.out.println(getProcesses());
+        //getProcesses().stream().mapToDouble(Process::getActualMemoryUsageInGb).forEach(System.out::println);
+        //System.out.println("-".repeat(20));
+        //getProcesses().stream().mapToDouble(Process::getCurrentMemoryUsageInGb).forEach(System.out::println);
         return getProcesses().stream().mapToDouble(Process::getActualMemoryUsageInGb).sum();
+        //return getProcesses().stream().mapToDouble(Process::getCurrentMemoryUsageInGb).sum();
     }
 }

@@ -17,14 +17,15 @@ public class PhysicalMachine implements Machine{
     public double calculateMemoryUsageInGb() {
         double allProcessMemoryUsage = processSet
                 .stream()
-                .map(Process::getCurrentMemoryUsageInGb)
+                //.map(Process::getCurrentMemoryUsageInGb)  //WRONG here! must use getActualMemoryUsage!!!
+                .map(Process::getActualMemoryUsageInGb)
                 .reduce(0.0, Double::sum);
         return Double.min(availableMemoryInGb, allProcessMemoryUsage);
 
     }
 
     //correct??
-    public double calculateMemoryUsageInGb2(){
+    public double calculateMemoryUsageInGb_2(){
         return Math.min(
                 availableMemoryInGb, getTotalProcessMemory()
         );
@@ -37,8 +38,11 @@ public class PhysicalMachine implements Machine{
         if(process == null){
             throw new IllegalArgumentException("process == null");
         }
-        if(!processSet.add(process)){
-            throw new IllegalArgumentException();
+        boolean added = processSet.add(process);
+
+        if(!added){
+            System.out.println("Process " + process + " not added. ");
+            //throw new IllegalArgumentException();
         }
     }
 
