@@ -5,8 +5,6 @@ import java.util.TreeSet;
 
 public class Process implements Comparable<Process>{
 
-
-
     private final long processId;
     private double currentMemoryUsageInGb;
 

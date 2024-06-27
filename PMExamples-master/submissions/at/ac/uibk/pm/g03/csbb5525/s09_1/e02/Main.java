@@ -10,7 +10,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Path pathToFile = Path.of(args[0]);
+        //Path pathToFile = Path.of(args[0]);
+        Path pathToFile = Path.of("number.txt");
         try(InputStream inputStream = new NumberInputStream(pathToFile)){
             byte[] input = inputStream.readNBytes(11);
 

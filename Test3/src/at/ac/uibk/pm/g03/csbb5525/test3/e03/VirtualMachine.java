@@ -47,4 +47,12 @@ public class VirtualMachine extends Process implements Machine {
         double all = other + memoryUsage;
         return Double.min(availableMemoryInGb, all);
     }
+
+    //@Override //this one correct??
+    public double getActualMemoryUsageInGb2(){
+        return Math.min(
+                availableMemoryInGb,
+                super.getActualMemoryUsageInGb() + getTotalProcessMemory()
+        );
+    }
 }

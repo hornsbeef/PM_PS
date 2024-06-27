@@ -23,12 +23,23 @@ public class PhysicalMachine implements Machine{
 
     }
 
+    //correct??
+    public double calculateMemoryUsageInGb2(){
+        return Math.min(
+                availableMemoryInGb, getTotalProcessMemory()
+        );
+    }
+
+
+
     @Override
     public void addProcess(Process process) {
         if(process == null){
             throw new IllegalArgumentException("process == null");
         }
-        processSet.add(process);
+        if(!processSet.add(process)){
+            throw new IllegalArgumentException();
+        }
     }
 
     @Override

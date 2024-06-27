@@ -4,10 +4,15 @@ public class Main {
 
     public static void main(String[] args) {
         Machine physicalMachine = new PhysicalMachine(32);
-        Machine vm = new VirtualMachine(123, 3, 12, physicalMachine);
-        Machine vm2 = new VirtualMachine(22, 2, 5, physicalMachine);
-        Machine vm3 = new VirtualMachine(13, 1, 2, physicalMachine);
+        VirtualMachine vm = new VirtualMachine(123, 3, 12, physicalMachine);
+        VirtualMachine vm2 = new VirtualMachine(22, 2, 5, physicalMachine);
+        VirtualMachine vm3 = new VirtualMachine(13, 1, 2, physicalMachine);
         physicalMachine.addProcess(new Process(21, 12, physicalMachine));
+
+        physicalMachine.addProcess(vm);
+        physicalMachine.addProcess(vm2);
+        physicalMachine.addProcess(vm3);
+
 
         vm.addProcess(new Process(1233, 4, vm));
         vm2.addProcess(new Process(1233, 4, vm2));

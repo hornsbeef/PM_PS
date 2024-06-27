@@ -9,4 +9,7 @@ public interface Machine {
     Collection<Process> getProcesses();
 
 
+    default double getTotalProcessMemory() {
+        return getProcesses().stream().mapToDouble(Process::getActualMemoryUsageInGb).sum();
+    }
 }
