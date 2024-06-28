@@ -32,6 +32,7 @@ public class EnumExperiment {
         Arrays.stream(Experiment.values()).forEach(x -> {
             System.out.println(x.name());
             System.out.println(x.ordinal());
+
             System.out.println(x.toString());
         });
 

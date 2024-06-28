@@ -17,6 +17,12 @@ public class VehicleApplication {
         truck.setCargo("water");
         System.out.println(vehicle.getInfo());
         System.out.println(truck.getInfo());
+
+
+        System.out.println(truck.getLicensePlate());
+        System.out.println(truck.getLocation());
+
+
     }
 
 }
