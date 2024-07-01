@@ -24,9 +24,12 @@ public class KovarianzTesting {
 
         a.get();    // ausgabe: get B
 
-        //A newA = a.get();
+        A newA = a.get();
 
         //B notWorking = a.get(); //why is this not working?
+        //weil: a den Statischen Typ A hat, und bei der statischen Typprüfung
+        // versucht wird der ReferenzVariable "B notworking" ein Objekt vom Typ A zuzuweisen, weil
+        // hier noch nicht die dynamische Typprüfung gemacht wird, und in A die Methode get() den Typ A zurückgibt.
 
         //B newB = (B) a.get();
 

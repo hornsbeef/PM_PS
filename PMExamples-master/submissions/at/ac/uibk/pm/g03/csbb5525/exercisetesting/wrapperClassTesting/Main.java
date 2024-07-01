@@ -1,8 +1,11 @@
 package at.ac.uibk.pm.g03.csbb5525.exercisetesting.wrapperClassTesting;
 
 import static java.lang.Integer.parseInt;
+import at.ac.uibk.pm.g03.csbb5525.exercisetesting.wrapperClassTesting.*;
+
 
 public class Main {
+
     public static void main(String[] args) {
 
         Byte b = 1;
@@ -31,7 +34,10 @@ public class Main {
         System.out.println(Double.compare(d, 3.7) == 0);
         System.out.println(d == 3.7);
 
+        System.out.println("#".repeat(20));
 
+        //methodA(1);
 
     }
+
 }
